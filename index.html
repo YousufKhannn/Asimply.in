@@ -1,167 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asimply - AI is the new CFO</title>
-    <meta name="description" content="AI-powered platform transforming the finance industry">
+    <title>Asimply | AI is the new CFO</title>
+    <link rel="icon" href="/asimply.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="min-h-screen">
-        <!-- Navigation -->
-        <header class="container">
-            <nav class="nav">
-                <div class="logo">
-                    <div class="logo-circle">
-                        <span class="logo-text">A</span>
+    <div class="app-container">
+        <div class="grid-overlay"></div>
+
+        <!-- Header/Navbar -->
+        <header id="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="/asimply-logo.png" alt="Asimply Logo">
+                        </a>
                     </div>
-                    <img class="limg" src="./asimply-logo.png" alt="logo">
-                </div>
-                <div class="nav-actions">
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="4"></circle>
-              <path d="M12 2v2"></path>
-              <path d="M12 20v2"></path>
-              <path d="m4.93 4.93 1.41 1.41"></path>
-              <path d="m17.66 17.66 1.41 1.41"></path>
-              <path d="M2 12h2"></path>
-              <path d="M20 12h2"></path>
-              <path d="m6.34 17.66-1.41 1.41"></path>
-              <path d="m19.07 4.93-1.41 1.41"></path>
-            </svg>
-            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-            </svg>
+
+                    <nav class="desktop-nav">
+                        <a href="#features" class="nav-link">Features</a>
+                        <a href="#waitlist" class="nav-link">Join Waitlist</a>
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+              <i class="fas fa-sun"></i>
+            </button>
+                    </nav>
+
+                    <button class="mobile-menu-button" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
           </button>
-                    <button class="btn btn-outline">Contact</button>
                 </div>
-            </nav>
+            </div>
+
+            <div class="mobile-menu">
+                <div class="container">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#waitlist" class="nav-link">Join Waitlist</a>
+                    <div class="mobile-theme-toggle">
+                        <span>Toggle theme</span>
+                        <button id="mobile-theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+              <i class="fas fa-sun"></i>
+            </button>
+                    </div>
+                </div>
+            </div>
         </header>
 
-        <!-- Hero Section -->
-        <section class="hero container">
-            <div class="coming-soon-badge">
-                <div class="badge-glow"></div>
-                <div class="badge-content">
-                    <span>Coming Soon</span>
-                </div>
-            </div>
-            <h1 class="hero-title">
-                <span class="gradient-text">AI is the new CFO.</span>
-            </h1>
-            <p class="hero-subtitle">
-                Transforming the finance industry by replacing traditional roles with intelligent automation.
-            </p>
+        <main>
+            <!-- Hero Section -->
+            <section id="hero" class="hero-section fade-in-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="coming-soon-badge">Coming Soon</div>
 
-            <!-- Waitlist Form -->
-            <div class="waitlist-form">
-                <input type="email" placeholder="Enter your email" class="email-input">
-                <button class="btn btn-primary">Join Waitlist</button>
-            </div>
+                        <h1 class="hero-title">AI is the new CFO.</h1>
 
-            <!-- Animated Graphics -->
-            <div class="animated-graphics">
-                <div class="pulse-circle pulse-circle-1"></div>
-                <div class="pulse-circle pulse-circle-2"></div>
-                <div class="pulse-circle pulse-circle-3"></div>
-
-                <!-- Financial Icons -->
-                <div class="finance-icon finance-icon-1">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 20h20"></path>
-            <path d="M5 20V8.2c0-.4.3-.8.7-.8.1 0 .2 0 .3.1L12 10l6-2.7c.1 0 .2-.1.3-.1.4 0 .7.4.7.8V20"></path>
-            <path d="M5 16h14"></path>
-          </svg>
-                </div>
-                <div class="finance-icon finance-icon-2">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-          </svg>
-                </div>
-                <div class="finance-icon finance-icon-3">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 3v18h18"></path>
-            <path d="m19 9-5 5-4-4-3 3"></path>
-          </svg>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pitch Section -->
-        <section class="pitch-section">
-            <div class="container">
-                <h2 class="pitch-title">We're building something big</h2>
-                <p class="pitch-subtitle">
-                    An intelligent financial brain for your business — powered by AI, driven by data.
-                </p>
-
-                <!-- Feature Cards -->
-                <div class="feature-cards">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
-                <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
-                <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
-              </svg>
+                        <div class="launch-date">
+                            <div class="launch-date-inner">
+                                <i class="fas fa-brain"></i>
+                                <span>Launching Q3 2025</span>
+                            </div>
                         </div>
-                        <h3 class="feature-title">Forecasting</h3>
-                        <p class="feature-description">AI-powered financial predictions with unmatched accuracy</p>
-                    </div>
 
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 3v18h18"></path>
-                <path d="m19 9-5 5-4-4-3 3"></path>
-              </svg>
-                        </div>
-                        <h3 class="feature-title">Reporting</h3>
-                        <p class="feature-description">Automated insights and beautiful visualizations</p>
-                    </div>
+                        <p class="hero-description">
+                            We're building something big. An intelligent financial brain for your business — powered by AI, driven by data.
+                        </p>
 
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3v3m0 4.5V12m0 4.5V18"></path>
-                <circle cx="12" cy="12" r="10"></circle>
-              </svg>
-                        </div>
-                        <h3 class="feature-title">Decision-Making</h3>
-                        <p class="feature-description">Strategic financial guidance powered by AI</p>
+                        <a href="#waitlist" class="cta-button">
+              Join the Waitlist
+              <i class="fas fa-arrow-right"></i>
+            </a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Backed By Section -->
-        <section class="backed-section container">
-            <h3 class="backed-title">Backed by industry leaders</h3>
-            <div class="backed-logos">
-                <div class="backed-logo"></div>
-                <div class="backed-logo"></div>
-                <div class="backed-logo"></div>
-                <div class="backed-logo"></div>
-            </div>
-        </section>
+                <!-- Floating elements -->
+                <div class="floating-element float-1"></div>
+                <div class="floating-element float-2"></div>
+                <div class="floating-icon float-icon-1">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="floating-icon float-icon-2">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="features-section fade-in-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Transforming Finance with AI</h2>
+                        <p>Asimply replaces traditional financial roles with intelligent automation, giving you a competitive edge in today's data-driven world.</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>AI-Powered Forecasting</h3>
+                            <p>Predictive financial modeling that learns from your business data to forecast future trends with unprecedented accuracy.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Intelligent Budgeting</h3>
+                            <p>Automated budget creation and management that adapts to your business needs and optimizes resource allocation.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Automated Reporting</h3>
+                            <p>Generate comprehensive financial reports instantly, customized to your stakeholders' needs.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-arrow-trend-up"></i>
+                            </div>
+                            <h3>Strategic Decision Support</h3>
+                            <p>Data-driven insights and recommendations to guide your most critical financial decisions.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h3>Real-time Analytics</h3>
+                            <p>Monitor your financial health with live dashboards that update as your business evolves.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield"></i>
+                            </div>
+                            <h3>Secure & Compliant</h3>
+                            <p>Enterprise-grade security with built-in compliance frameworks for financial regulations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Waitlist Section -->
+            <section id="waitlist" class="waitlist-section fade-in-section">
+                <div class="container">
+                    <div class="waitlist-container">
+                        <div class="section-header">
+                            <h2>Be the First to Experience Asimply</h2>
+                            <p>Join our waitlist to get early access and exclusive updates as we prepare to launch the future of financial management.</p>
+                        </div>
+
+                        <div id="waitlist-form-container">
+                            <form id="waitlist-form" class="waitlist-form">
+                                <div class="form-group">
+                                    <input type="email" id="email" placeholder="Enter your email address" aria-label="Email address">
+                                    <p id="error-message" class="error-message"></p>
+                                </div>
+                                <button type="submit" class="cta-button">
+                  <span>Join Waitlist</span>
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+                            </form>
+                        </div>
+
+                        <div id="success-message" class="success-message hidden">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Thank you for joining our waitlist! We'll keep you updated on our progress.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Backed By Section -->
+            <section id="backed-by" class="backed-by-section fade-in-section">
+                <div class="container">
+                    <div class="backed-by-header">
+                        <h3>Backed by Industry Leaders</h3>
+                        <div class="divider"></div>
+                    </div>
+
+                    <div class="backed-by-logos">
+                        <div class="logo-placeholder">VentureX</div>
+                        <div class="logo-placeholder">FinTech Fund</div>
+                        <div class="logo-placeholder">AI Capital</div>
+                        <div class="logo-placeholder">TechStars</div>
+                    </div>
+                </div>
+            </section>
+        </main>
 
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-logo">
-                        <div class="logo-circle logo-circle-small">
-                            <span class="logo-text-small">A</span>
-                        </div>
-                        <span class="footer-logo-name">Asimply</span>
+                        <a href="#">
+                            <img src="/asimply-logo.png" alt="Asimply Logo">
+                        </a>
+                        <p>AI-powered financial intelligence for modern businesses.</p>
                     </div>
-                    <div class="copyright">
-                        © <span id="current-year"></span> Asimply. All rights reserved.
+
+                    <div class="footer-social">
+                        <div class="social-links">
+                            <a href="#" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                        <p class="copyright">© <span id="current-year"></span> Asimply. All rights reserved.</p>
                     </div>
                 </div>
             </div>
