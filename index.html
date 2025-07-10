@@ -24,6 +24,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        .no-js .loader {
+            display: none;
+        }
+        
          :root {
             /* Default Theme - White */
             --bg-primary: #FFFFFF;
@@ -107,7 +111,14 @@
             align-items: center;
             justify-content: center;
             z-index: 10000;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
         }
         
         .loader-content {
@@ -1275,7 +1286,10 @@
     </style>
 </head>
 
-<body data-theme="default">
+<body data-theme="default" class="no-js">
+    <script>
+        document.documentElement.classList.remove('no-js');
+    </script>
     <!-- Loading Screen -->
     <div class="loader" id="loader">
         <div class="loader-content">
@@ -1451,14 +1465,23 @@
     <div class="back-to-top" id="backToTop">↑</div>
 
     <script>
-        // Loading Screen
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').style.opacity = '0';
+        // Loading Screen - Fixed
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loader');
+
+            // Ensure loader is visible initially
+            loader.style.opacity = '1';
+            loader.style.visibility = 'visible';
+
+            // Hide loader after content is loaded
+            window.addEventListener('load', () => {
                 setTimeout(() => {
-                    document.getElementById('loader').style.display = 'none';
-                }, 600);
-            }, 3000);
+                    loader.classList.add('hidden');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 600);
+                }, 2500); // Show loader for 2.5 seconds
+            });
         });
 
         // Animated Tab Title
