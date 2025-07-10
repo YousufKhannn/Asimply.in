@@ -4,2195 +4,1292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Asimply - The intelligent brain powering modern finance. AI-powered CFO that replaces traditional financial limitations with real-time insights and automated decision-making.">
-    <meta name="keywords" content="AI CFO, artificial intelligence finance, automated CFO, financial AI, real-time insights, financial automation">
+    <meta name="description" content="Asimply - The AI-powered CFO that's replacing human limitations in finance. Join the revolution of intelligent financial automation.">
+    <meta name="keywords" content="AI CFO, artificial intelligence finance, automated CFO, financial AI, AI financial management, future of finance">
     <meta name="author" content="Asimply">
-
-    <!-- Open Graph -->
     <meta property="og:title" content="Asimply - The CFO You Can't Compete With">
-    <meta property="og:description" content="The intelligent brain powering modern finance. Join the AI revolution in financial management.">
+    <meta property="og:description" content="Asimply replaces outdated human finance with real-time AI decisions. The future of financial intelligence is here.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://asimply.ai">
     <meta property="og:image" content="/og-image.jpg">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Asimply - AI-Powered CFO Revolution">
-    <meta name="twitter:description" content="The CFO you can't compete with. Real-time AI financial decisions.">
+    <meta name="twitter:description" content="The CFO you can't compete with. Real-time AI financial decisions replacing human limitations.">
 
-    <title>Asimply - The CFO You Can't Compete With</title>
+    <title id="pageTitle">Asimply - The CFO You Can't Compete With</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <script>
-        // DOM Elements
-        const loader = document.getElementById("loader")
-        const navbar = document.getElementById("navbar")
-        const mobileMenuToggle = document.getElementById("mobileMenuToggle")
-        const navMenu = document.getElementById("navMenu")
-        const floatingCTA = document.getElementById("floatingCTA")
-        const scrollToTop = document.getElementById("scrollToTop")
-        const heroEmailForm = document.getElementById("heroEmailForm")
-        const waitlistForm = document.getElementById("waitlistForm")
-        const heroSuccess = document.getElementById("heroSuccess")
-        const waitlistSuccess = document.getElementById("waitlistSuccess")
-
-        // Loading Screen
-        window.addEventListener("load", () => {
-            setTimeout(() => {
-                loader.style.opacity = "0"
-                setTimeout(() => {
-                    loader.style.display = "none"
-                }, 500)
-            }, 3000)
-        })
-
-        // Navbar Scroll Effect
-        let lastScrollY = window.scrollY
-
-        window.addEventListener("scroll", () => {
-            const scrollY = window.scrollY
-
-            // Navbar shrink effect
-            if (scrollY > 50) {
-                navbar.classList.add("shrunk")
-            } else {
-                navbar.classList.remove("shrunk")
-            }
-
-            // Show/hide floating elements
-            if (scrollY > 800) {
-                floatingCTA.style.display = "block"
-                scrollToTop.style.display = "flex"
-            } else {
-                floatingCTA.style.display = "none"
-                scrollToTop.style.display = "none"
-            }
-
-            lastScrollY = scrollY
-        })
-
-        // Mobile Menu Toggle
-        mobileMenuToggle.addEventListener("click", () => {
-            navMenu.classList.toggle("open")
-        })
-
-        // Close mobile menu when clicking on links
-        document.querySelectorAll(".nav-link").forEach((link) => {
-            link.addEventListener("click", () => {
-                navMenu.classList.remove("open")
-            })
-        })
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-            anchor.addEventListener("click", function(e) {
-                e.preventDefault()
-                const target = document.querySelector(this.getAttribute("href"))
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                    })
-                }
-            })
-        })
-
-        // Scroll to Top
-        scrollToTop.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            })
-        })
-
-        // Floating CTA
-        floatingCTA.addEventListener("click", () => {
-            document.querySelector(".join-waitlist-section").scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            })
-        })
-
-        // Intersection Observer for Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px",
+    <style>
+         :root {
+            /* Default Theme - White */
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --bg-accent: #301C27;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --accent-primary: #E99B28;
+            --accent-secondary: #301C27;
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --shadow: rgba(0, 0, 0, 0.1);
         }
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("animate-in")
-                }
-            })
-        }, observerOptions)
-
-        // Observe animated elements
-        setTimeout(() => {
-            document.querySelectorAll(".fade-in, .slide-up, .slide-left, .slide-right").forEach((el) => {
-                observer.observe(el)
-            })
-        }, 100)
-
-        // Email Form Validation and Submission
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-            return re.test(email)
+        
+        [data-theme="dark"] {
+            --bg-primary: #000000;
+            --bg-secondary: #111111;
+            --bg-accent: #E99B28;
+            --text-primary: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --accent-primary: #E99B28;
+            --accent-secondary: #301C27;
+            --glass-bg: rgba(0, 0, 0, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow: rgba(255, 255, 255, 0.1);
         }
-
-        function showSuccessMessage(successElement) {
-            successElement.style.display = "flex"
-            setTimeout(() => {
-                successElement.style.display = "none"
-            }, 5000)
+        
+        [data-theme="modern"] {
+            --bg-primary: #F5F7FA;
+            --bg-secondary: #E8EDF3;
+            --bg-accent: #2C5282;
+            --text-primary: #1A202C;
+            --text-secondary: #4A5568;
+            --accent-primary: #319795;
+            --accent-secondary: #2C5282;
+            --glass-bg: rgba(255, 255, 255, 0.3);
+            --glass-border: rgba(44, 82, 130, 0.2);
+            --shadow: rgba(0, 0, 0, 0.15);
         }
-
-        // Hero Email Form
-        heroEmailForm.addEventListener("submit", async(e) => {
-            e.preventDefault()
-
-            const emailInput = document.getElementById("heroEmail")
-            const email = emailInput.value.trim()
-            const submitButton = heroEmailForm.querySelector('button[type="submit"]')
-
-            if (!validateEmail(email)) {
-                alert("Please enter a valid email address")
-                return
-            }
-
-            // Show loading state
-            const originalText = submitButton.innerHTML
-            submitButton.innerHTML = "Processing..."
-            submitButton.disabled = true
-
-            try {
-                // Simulate API call - replace with actual endpoint
-                await new Promise((resolve) => setTimeout(resolve, 1500))
-
-                // Here you would typically send the email to your backend
-                console.log("Hero email submitted:", email)
-
-                // Show success message
-                showSuccessMessage(heroSuccess)
-                emailInput.value = ""
-            } catch (error) {
-                console.error("Submission error:", error)
-                alert("Something went wrong. Please try again.")
-            } finally {
-                // Reset button
-                submitButton.innerHTML = originalText
-                submitButton.disabled = false
-            }
-        })
-
-        // Waitlist Form
-        waitlistForm.addEventListener("submit", async(e) => {
-            e.preventDefault()
-
-            const emailInput = document.getElementById("waitlistEmail")
-            const email = emailInput.value.trim()
-            const submitButton = waitlistForm.querySelector('button[type="submit"]')
-
-            if (!validateEmail(email)) {
-                alert("Please enter a valid email address")
-                return
-            }
-
-            // Show loading state
-            const originalText = submitButton.innerHTML
-            submitButton.innerHTML = "Processing..."
-            submitButton.disabled = true
-
-            try {
-                // Simulate API call - replace with actual endpoint
-                await new Promise((resolve) => setTimeout(resolve, 1500))
-
-                // Here you would typically send the email to your backend
-                console.log("Waitlist email submitted:", email)
-
-                // Show success message
-                showSuccessMessage(waitlistSuccess)
-                emailInput.value = ""
-            } catch (error) {
-                console.error("Submission error:", error)
-                alert("Something went wrong. Please try again.")
-            } finally {
-                // Reset button
-                submitButton.innerHTML = originalText
-                submitButton.disabled = false
-            }
-        })
-
-        // Email Input Focus Effects
-        document.querySelectorAll('input[type="email"]').forEach((input) => {
-            input.addEventListener("input", function() {
-                const email = this.value
-                const isValid = validateEmail(email)
-
-                if (email && !isValid) {
-                    this.style.borderColor = "#ff6b6b"
-                } else {
-                    this.style.borderColor = "var(--border-light)"
-                }
-            })
-        })
-
-        // Lazy Loading for Images (when added)
-        if ("IntersectionObserver" in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src
-                            img.classList.remove("lazy")
-                            imageObserver.unobserve(img)
-                        }
-                    }
-                })
-            })
-
-            document.querySelectorAll("img[data-src]").forEach((img) => {
-                imageObserver.observe(img)
-            })
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        // Parallax Effect for Hero Background
-        window.addEventListener("scroll", () => {
-            const scrolled = window.pageYOffset
-            const parallaxElements = document.querySelectorAll(".hero-bg")
-
-            parallaxElements.forEach((element) => {
-                const speed = scrolled * 0.5
-                element.style.transform = `translateY(${speed}px)`
-            })
-        })
-
-        // Dynamic Chart Animation
-        function animateChartBars() {
-            const chartBars = document.querySelectorAll(".chart-bar")
-            chartBars.forEach((bar, index) => {
-                setTimeout(() => {
-                    bar.style.animation = "chart-grow 1s ease-out forwards"
-                }, index * 100)
-            })
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
         }
-
-        // Trigger chart animation when dashboard comes into view
-        const dashboardObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    animateChartBars()
-                    dashboardObserver.unobserve(entry.target)
-                }
-            })
-        })
-
-        const dashboard = document.querySelector(".ai-dashboard")
-        if (dashboard) {
-            dashboardObserver.observe(dashboard)
-        }
-
-        // Keyboard Navigation
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") {
-                navMenu.classList.remove("open")
-            }
-        })
-
-        // Focus Management for Accessibility
-        const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-
-        function trapFocus(element) {
-            const focusableContent = element.querySelectorAll(focusableElements)
-            const firstFocusableElement = focusableContent[0]
-            const lastFocusableElement = focusableContent[focusableContent.length - 1]
-
-            document.addEventListener("keydown", (e) => {
-                const isTabPressed = e.key === "Tab"
-
-                if (!isTabPressed) return
-
-                if (e.shiftKey) {
-                    if (document.activeElement === firstFocusableElement) {
-                        lastFocusableElement.focus()
-                        e.preventDefault()
-                    }
-                } else {
-                    if (document.activeElement === lastFocusableElement) {
-                        firstFocusableElement.focus()
-                        e.preventDefault()
-                    }
-                }
-            })
-        }
-
-        // Initialize focus trap for mobile menu
-        if (navMenu) {
-            trapFocus(navMenu)
-        }
-
-        console.log("Asimply landing page loaded successfully! 🧠")
-    </script>
-</head>
-
-<style>
-    /* Reset and Base Styles */
-    
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-     :root {
-        --primary-orange: #e99b28;
-        --primary-dark: #301c27;
-        --text-black: #000000;
-        --text-gray: #666666;
-        --text-light-gray: #999999;
-        --bg-white: #ffffff;
-        --bg-light: #fafafa;
-        --bg-gray: #f5f5f5;
-        --border-light: #e5e5e5;
-        --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
-        --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15);
-        --shadow-heavy: 0 10px 40px rgba(0, 0, 0, 0.2);
-        --glass-bg: rgba(255, 255, 255, 0.25);
-        --glass-border: rgba(255, 255, 255, 0.18);
-    }
-    
-    html {
-        scroll-behavior: smooth;
-    }
-    
-    body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        line-height: 1.6;
-        color: var(--text-black);
-        background: var(--bg-white);
-        overflow-x: hidden;
-    }
-    /* Loading Screen */
-    
-    .loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--bg-white);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 10000;
-        transition: opacity 0.5s ease;
-    }
-    
-    .loader-content {
-        text-align: center;
-    }
-    
-    .ai-circuit-loader {
-        position: relative;
-        width: 120px;
-        height: 120px;
-        margin: 0 auto 2rem;
-    }
-    
-    .circuit-core {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 20px;
-        height: 20px;
-        background: var(--primary-orange);
-        border-radius: 50%;
-        animation: pulse-core 2s ease-in-out infinite;
-    }
-    
-    .circuit-lines {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .circuit-line {
-        position: absolute;
-        background: var(--primary-orange);
-        opacity: 0.6;
-    }
-    
-    .circuit-line:nth-child(1) {
-        top: 50%;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        animation: circuit-flow-h 3s ease-in-out infinite;
-    }
-    
-    .circuit-line:nth-child(2) {
-        top: 0;
-        left: 50%;
-        width: 2px;
-        height: 100%;
-        animation: circuit-flow-v 3s ease-in-out infinite 0.5s;
-    }
-    
-    .circuit-line:nth-child(3) {
-        top: 25%;
-        left: 25%;
-        width: 50%;
-        height: 2px;
-        animation: circuit-flow-h 3s ease-in-out infinite 1s;
-    }
-    
-    .circuit-line:nth-child(4) {
-        top: 25%;
-        left: 75%;
-        width: 2px;
-        height: 50%;
-        animation: circuit-flow-v 3s ease-in-out infinite 1.5s;
-    }
-    
-    .data-bars {
-        position: absolute;
-        bottom: -40px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 4px;
-    }
-    
-    .data-bar {
-        width: 6px;
-        background: var(--primary-orange);
-        border-radius: 3px;
-        animation: data-bar-pulse 1.5s ease-in-out infinite;
-    }
-    
-    .data-bar:nth-child(1) {
-        height: 20px;
-        animation-delay: 0s;
-    }
-    
-    .data-bar:nth-child(2) {
-        height: 30px;
-        animation-delay: 0.1s;
-    }
-    
-    .data-bar:nth-child(3) {
-        height: 25px;
-        animation-delay: 0.2s;
-    }
-    
-    .data-bar:nth-child(4) {
-        height: 35px;
-        animation-delay: 0.3s;
-    }
-    
-    .data-bar:nth-child(5) {
-        height: 28px;
-        animation-delay: 0.4s;
-    }
-    
-    @keyframes pulse-core {
-        0%,
-        100% {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        }
-        50% {
-            transform: translate(-50%, -50%) scale(1.3);
-            opacity: 0.7;
-        }
-    }
-    
-    @keyframes circuit-flow-h {
-        0%,
-        100% {
-            opacity: 0.3;
-        }
-        50% {
-            opacity: 1;
-        }
-    }
-    
-    @keyframes circuit-flow-v {
-        0%,
-        100% {
-            opacity: 0.3;
-        }
-        50% {
-            opacity: 1;
-        }
-    }
-    
-    @keyframes data-bar-pulse {
-        0%,
-        100% {
-            opacity: 0.6;
-            transform: scaleY(0.8);
-        }
-        50% {
-            opacity: 1;
-            transform: scaleY(1.2);
-        }
-    }
-    
-    .loader-text {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: var(--text-black);
-        margin-bottom: 1rem;
-    }
-    
-    .loading-progress {
-        width: 200px;
-        height: 3px;
-        background: var(--bg-gray);
-        border-radius: 2px;
-        overflow: hidden;
-        margin: 0 auto;
-    }
-    
-    .progress-bar {
-        width: 100%;
-        height: 100%;
-        background: var(--primary-orange);
-        border-radius: 2px;
-        animation: loading-progress 3s ease-in-out infinite;
-    }
-    
-    @keyframes loading-progress {
-        0% {
-            transform: translateX(-100%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-    /* Navigation */
-    
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--border-light);
-        z-index: 1000;
-        transition: all 0.3s ease;
-        padding: 1rem 0;
-    }
-    
-    .navbar.shrunk {
-        padding: 0.5rem 0;
-        box-shadow: var(--shadow-light);
-    }
-    
-    .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .nav-logo {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 1.5rem;
-        font-weight: 800;
-        color: var(--text-black);
-        text-decoration: none;
-    }
-    
-    .logo-icon {
-        width: 32px;
-        height: 32px;
-        color: var(--primary-orange);
-    }
-    
-    .nav-menu {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-    }
-    
-    .nav-link {
-        color: var(--text-black);
-        text-decoration: none;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        position: relative;
-    }
-    
-    .nav-link:hover {
-        color: var(--primary-orange);
-    }
-    
-    .nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary-orange);
-        transition: width 0.3s ease;
-    }
-    
-    .nav-link:hover::after {
-        width: 100%;
-    }
-    
-    .mobile-menu-toggle {
-        display: none;
-        flex-direction: column;
-        gap: 4px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0.5rem;
-    }
-    
-    .mobile-menu-toggle span {
-        width: 25px;
-        height: 2px;
-        background: var(--text-black);
-        transition: all 0.3s ease;
-    }
-    /* Hero Section */
-    
-    .hero-section {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        position: relative;
-        background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
-        overflow: hidden;
-    }
-    
-    .hero-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0.1;
-    }
-    
-    .floating-elements {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .floating-element {
-        position: absolute;
-        width: 40px;
-        height: 40px;
-        color: var(--primary-orange);
-        animation: float-element 6s ease-in-out infinite;
-    }
-    
-    .floating-element:nth-child(1) {
-        top: 20%;
-        left: 10%;
-        animation-delay: 0s;
-    }
-    
-    .floating-element:nth-child(2) {
-        top: 60%;
-        left: 20%;
-        animation-delay: 1s;
-    }
-    
-    .floating-element:nth-child(3) {
-        top: 30%;
-        right: 15%;
-        animation-delay: 2s;
-    }
-    
-    .floating-element:nth-child(4) {
-        top: 70%;
-        right: 25%;
-        animation-delay: 3s;
-    }
-    
-    @keyframes float-element {
-        0%,
-        100% {
-            transform: translateY(0px);
-        }
-        50% {
-            transform: translateY(-20px);
-        }
-    }
-    
-    .hero-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: center;
-        position: relative;
-        z-index: 2;
-    }
-    
-    .hero-content h1 {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        font-weight: 900;
-        line-height: 1.1;
-        margin-bottom: 1.5rem;
-        color: var(--text-black);
-    }
-    
-    .hero-content p {
-        font-size: 1.2rem;
-        color: var(--text-gray);
-        margin-bottom: 2rem;
-        line-height: 1.6;
-    }
-    
-    .hero-email-form {
-        margin-bottom: 2rem;
-    }
-    
-    .email-input-group {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .email-input-group input {
-        flex: 1;
-        padding: 1rem 1.5rem;
-        border: 2px solid var(--border-light);
-        border-radius: 50px;
-        font-size: 1rem;
-        outline: none;
-        transition: all 0.3s ease;
-    }
-    
-    .email-input-group input:focus {
-        border-color: var(--primary-orange);
-        box-shadow: 0 0 0 3px rgba(233, 155, 40, 0.1);
-    }
-    
-    .email-input-group button {
-        background: var(--primary-orange);
-        color: white;
-        border: none;
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        transition: all 0.3s ease;
-        white-space: nowrap;
-    }
-    
-    .email-input-group button:hover {
-        background: #d88a1f;
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-medium);
-    }
-    
-    .button-icon {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .success-message {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--primary-orange);
-        font-weight: 500;
-        animation: slideIn 0.3s ease;
-    }
-    
-    .success-message svg {
-        width: 20px;
-        height: 20px;
-    }
-    
-    @keyframes slideIn {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    /* Hero Visual */
-    
-    .hero-visual {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .ai-dashboard {
-        background: white;
-        border-radius: 20px;
-        padding: 2rem;
-        box-shadow: var(--shadow-heavy);
-        border: 1px solid var(--border-light);
-        width: 100%;
-        max-width: 400px;
-    }
-    
-    .dashboard-header {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 1.5rem;
-        font-weight: 600;
-    }
-    
-    .status-indicator {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: #10b981;
-        animation: pulse-green 2s ease-in-out infinite;
-    }
-    
-    @keyframes pulse-green {
-        0%,
-        100% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 0.5;
-        }
-    }
-    
-    .dashboard-metrics {
-        display: grid;
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
-    
-    .metric {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.75rem;
-        background: var(--bg-light);
-        border-radius: 10px;
-    }
-    
-    .metric-label {
-        font-size: 0.9rem;
-        color: var(--text-gray);
-    }
-    
-    .metric-value {
-        font-weight: 700;
-        color: var(--primary-orange);
-    }
-    
-    .dashboard-chart {
-        height: 120px;
-        background: var(--bg-light);
-        border-radius: 10px;
-        padding: 1rem;
-        display: flex;
-        align-items: end;
-    }
-    
-    .chart-bars {
-        display: flex;
-        align-items: end;
-        gap: 4px;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .chart-bar {
-        flex: 1;
-        background: var(--primary-orange);
-        border-radius: 2px;
-        animation: chart-grow 2s ease-out;
-    }
-    
-    @keyframes chart-grow {
-        from {
-            height: 0;
-        }
-        to {
-            height: var(--height);
-        }
-    }
-    
-    .scroll-indicator {
-        position: absolute;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        color: var(--text-gray);
-        animation: bounce 2s ease-in-out infinite;
-    }
-    
-    .scroll-indicator svg {
-        width: 24px;
-        height: 24px;
-    }
-    
-    @keyframes bounce {
-        0%,
-        100% {
-            transform: translateX(-50%) translateY(0);
-        }
-        50% {
-            transform: translateX(-50%) translateY(-10px);
-        }
-    }
-    /* Problem & Solution Section */
-    
-    .problem-solution-section {
-        padding: 6rem 0;
-        background: var(--bg-white);
-    }
-    
-    .section-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-    }
-    
-    .problem-solution-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: center;
-    }
-    
-    .problem-content h2 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 2rem;
-        color: var(--text-black);
-    }
-    
-    .problem-points {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .problem-point {
-        display: flex;
-        gap: 1rem;
-        align-items: flex-start;
-    }
-    
-    .problem-icon {
-        font-size: 1.5rem;
-        margin-top: 0.25rem;
-    }
-    
-    .problem-point h4 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: var(--text-black);
-    }
-    
-    .problem-point p {
-        color: var(--text-gray);
-        line-height: 1.6;
-    }
-    /* AI Brain Visual */
-    
-    .solution-visual {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .ai-brain-visual {
-        position: relative;
-        width: 300px;
-        height: 300px;
-    }
-    
-    .brain-center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80px;
-        height: 80px;
-        background: var(--primary-orange);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 3;
-    }
-    
-    .brain-icon {
-        width: 40px;
-        height: 40px;
-        color: white;
-    }
-    
-    .data-streams {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .data-stream {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 2px;
-        height: 150px;
-        transform-origin: bottom center;
-    }
-    
-    .data-point {
-        width: 8px;
-        height: 8px;
-        background: var(--primary-orange);
-        border-radius: 50%;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        animation: data-flow 3s ease-in-out infinite;
-    }
-    
-    @keyframes data-flow {
-        0% {
-            top: 0;
-            opacity: 0;
-        }
-        50% {
-            opacity: 1;
-        }
-        100% {
-            top: 100%;
-            opacity: 0;
-        }
-    }
-    
-    .processing-rings {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-    .ring {
-        position: absolute;
-        border: 2px solid var(--primary-orange);
-        border-radius: 50%;
-        opacity: 0.3;
-    }
-    
-    .ring-1 {
-        width: 120px;
-        height: 120px;
-        top: -60px;
-        left: -60px;
-        animation: ring-pulse 3s ease-in-out infinite;
-    }
-    
-    .ring-2 {
-        width: 180px;
-        height: 180px;
-        top: -90px;
-        left: -90px;
-        animation: ring-pulse 3s ease-in-out infinite 0.5s;
-    }
-    
-    .ring-3 {
-        width: 240px;
-        height: 240px;
-        top: -120px;
-        left: -120px;
-        animation: ring-pulse 3s ease-in-out infinite 1s;
-    }
-    
-    @keyframes ring-pulse {
-        0%,
-        100% {
-            transform: scale(1);
-            opacity: 0.3;
-        }
-        50% {
-            transform: scale(1.1);
-            opacity: 0.1;
-        }
-    }
-    /* How It Works Section */
-    
-    .how-it-works-section {
-        padding: 6rem 0;
-        background: var(--bg-light);
-    }
-    
-    .section-header {
-        text-align: center;
-        margin-bottom: 4rem;
-    }
-    
-    .section-header h2 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        color: var(--text-black);
-    }
-    
-    .section-header p {
-        font-size: 1.2rem;
-        color: var(--text-gray);
-    }
-    
-    .steps-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-    }
-    
-    .step-card {
-        background: white;
-        padding: 2rem;
-        border-radius: 20px;
-        text-align: center;
-        box-shadow: var(--shadow-light);
-        border: 1px solid var(--border-light);
-        transition: all 0.3s ease;
-        position: relative;
-    }
-    
-    .step-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-medium);
-    }
-    
-    .step-number {
-        position: absolute;
-        top: -15px;
-        left: 2rem;
-        background: var(--primary-orange);
-        color: white;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 0.9rem;
-    }
-    
-    .step-icon {
-        width: 60px;
-        height: 60px;
-        margin: 1rem auto;
-        color: var(--primary-orange);
-    }
-    
-    .step-card h3 {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: var(--text-black);
-    }
-    
-    .step-card p {
-        color: var(--text-gray);
-        line-height: 1.6;
-    }
-    /* Features Section */
-    
-    .features-section {
-        padding: 6rem 0;
-        background: var(--bg-white);
-    }
-    
-    .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-    
-    .feature-card {
-        padding: 2rem;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-        text-align: center;
-        border: 1px solid var(--border-light);
-    }
-    
-    .glass-card {
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        box-shadow: var(--shadow-light);
-    }
-    
-    .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-medium);
-        border-color: var(--primary-orange);
-    }
-    
-    .feature-icon {
-        width: 60px;
-        height: 60px;
-        margin: 0 auto 1.5rem;
-        color: var(--primary-orange);
-    }
-    
-    .feature-card h3 {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: var(--text-black);
-    }
-    
-    .feature-card p {
-        color: var(--text-gray);
-        line-height: 1.6;
-    }
-    /* Testimonials Section */
-    
-    .testimonials-section {
-        padding: 6rem 0;
-        background: var(--primary-dark);
-        color: white;
-    }
-    
-    .testimonials-section .section-header h2,
-    .testimonials-section .section-header p {
-        color: white;
-    }
-    
-    .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-    }
-    
-    .testimonial-card {
-        padding: 2rem;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-    }
-    
-    .testimonials-section .glass-card {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .testimonial-card:hover {
-        transform: translateY(-5px);
-        background: rgba(255, 255, 255, 0.15);
-    }
-    
-    .testimonial-quote {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        font-style: italic;
-    }
-    
-    .author-info {
-        text-align: left;
-    }
-    
-    .author-name {
-        font-weight: 700;
-        font-size: 1.1rem;
-        color: var(--primary-orange);
-    }
-    
-    .author-role {
-        font-weight: 500;
-        margin-bottom: 0.25rem;
-    }
-    
-    .author-company {
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.7);
-    }
-    /* Join Waitlist Section */
-    
-    .join-waitlist-section {
-        padding: 6rem 0;
-        background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
-        text-align: center;
-    }
-    
-    .cta-content h2 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        color: var(--text-black);
-    }
-    
-    .cta-content p {
-        font-size: 1.2rem;
-        color: var(--text-gray);
-        margin-bottom: 2rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .waitlist-form {
-        max-width: 500px;
-        margin: 0 auto;
-    }
-    /* Footer */
-    
-    .footer {
-        background: var(--primary-dark);
-        color: white;
-        padding: 4rem 0 2rem;
-    }
-    
-    .footer-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-    }
-    
-    .footer-content {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 4rem;
-        margin-bottom: 3rem;
-    }
-    
-    .footer-brand {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .footer-logo {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 1.5rem;
-        font-weight: 800;
-    }
-    
-    .footer-brand p {
-        color: rgba(255, 255, 255, 0.7);
-        line-height: 1.6;
-    }
-    
-    .contact-info {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: rgba(255, 255, 255, 0.7);
-    }
-    
-    .contact-icon {
-        width: 16px;
-        height: 16px;
-    }
-    
-    .footer-links {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-    }
-    
-    .footer-column h4 {
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: var(--primary-orange);
-    }
-    
-    .footer-column a {
-        display: block;
-        color: rgba(255, 255, 255, 0.7);
-        text-decoration: none;
-        margin-bottom: 0.5rem;
-        transition: color 0.3s ease;
-    }
-    
-    .footer-column a:hover {
-        color: var(--primary-orange);
-    }
-    
-    .footer-bottom {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .social-links {
-        display: flex;
-        gap: 1rem;
-    }
-    
-    .social-links a {
-        color: rgba(255, 255, 255, 0.7);
-        text-decoration: none;
-        font-weight: 700;
-        transition: color 0.3s ease;
-    }
-    
-    .social-links a:hover {
-        color: var(--primary-orange);
-    }
-    /* Floating Elements */
-    
-    .floating-cta {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        background: var(--primary-orange);
-        color: white;
-        border: none;
-        padding: 1rem 1.5rem;
-        border-radius: 50px;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: var(--shadow-heavy);
-        z-index: 1000;
-        transition: all 0.3s ease;
-        animation: float-cta 3s ease-in-out infinite;
-    }
-    
-    .floating-cta:hover {
-        background: #d88a1f;
-        transform: translateY(-3px);
-    }
-    
-    @keyframes float-cta {
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-5px);
-        }
-    }
-    
-    .scroll-to-top {
-        position: fixed;
-        bottom: 2rem;
-        left: 2rem;
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        color: var(--text-black);
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        z-index: 1000;
-    }
-    
-    .scroll-to-top:hover {
-        background: var(--primary-orange);
-        color: white;
-    }
-    
-    .scroll-to-top svg {
-        width: 20px;
-        height: 20px;
-    }
-    /* Animations */
-    
-    .fade-in,
-    .slide-up,
-    .slide-left,
-    .slide-right {
-        opacity: 0;
-        transition: all 0.8s ease;
-    }
-    
-    .fade-in.animate-in {
-        opacity: 1;
-    }
-    
-    .slide-up {
-        transform: translateY(30px);
-    }
-    
-    .slide-up.animate-in {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .slide-left {
-        transform: translateX(-30px);
-    }
-    
-    .slide-left.animate-in {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    
-    .slide-right {
-        transform: translateX(30px);
-    }
-    
-    .slide-right.animate-in {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    /* Mobile Responsive */
-    
-    @media (max-width: 768px) {
-        .mobile-menu-toggle {
-            display: flex;
-        }
-        .nav-menu {
+        /* Loading Screen */
+        
+        .loader {
             position: fixed;
             top: 0;
-            right: -100%;
+            left: 0;
             width: 100%;
-            height: 100vh;
-            background: white;
+            height: 100%;
+            background: var(--bg-primary);
+            display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            gap: 2rem;
-            transition: right 0.3s ease;
-            z-index: 999;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
         }
-        .nav-menu.open {
-            right: 0;
-        }
-        .hero-container {
-            grid-template-columns: 1fr;
-            gap: 2rem;
+        
+        .loader-content {
             text-align: center;
         }
-        .problem-solution-grid {
-            grid-template-columns: 1fr;
-            gap: 3rem;
+        
+        .loader-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
         }
-        .steps-grid {
-            grid-template-columns: 1fr;
+        
+        .financial-loader {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 1rem;
         }
-        .features-grid {
-            grid-template-columns: 1fr;
+        
+        .bar {
+            width: 8px;
+            height: 40px;
+            background: var(--accent-primary);
+            border-radius: 4px;
+            animation: financial-pulse 1.5s ease-in-out infinite;
         }
-        .testimonials-grid {
-            grid-template-columns: 1fr;
+        
+        .bar:nth-child(2) {
+            animation-delay: 0.1s;
         }
-        .footer-content {
-            grid-template-columns: 1fr;
+        
+        .bar:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+        
+        .bar:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+        
+        .bar:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes financial-pulse {
+            0%,
+            100% {
+                height: 20px;
+                opacity: 0.6;
+            }
+            50% {
+                height: 60px;
+                opacity: 1;
+            }
+        }
+        
+        .loader-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        /* Navbar */
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 1.5rem 0;
+        }
+        
+        [data-theme="dark"] .navbar {
+            background: rgba(0, 0, 0, 0.95);
+        }
+        
+        [data-theme="modern"] .navbar {
+            background: rgba(245, 247, 250, 0.95);
+        }
+        
+        .navbar.shrink {
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        img .logo {
+            height: 100px;
+            width: 100px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
             gap: 2rem;
         }
-        .footer-links {
-            grid-template-columns: 1fr;
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
-        .footer-bottom {
+        
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        /* Theme Toggle */
+        
+        .theme-toggle {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            border-radius: 25px;
+            padding: 0.3rem;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .theme-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-btn.active {
+            background: var(--accent-primary);
+            color: white;
+        }
+        
+        .hamburger {
+            display: none;
             flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        /* Hero Section */
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .data-flow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .data-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+            animation: flow 8s linear infinite;
+        }
+        
+        @keyframes flow {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100vw);
+                opacity: 0;
+            }
+        }
+        
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero p {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+        
+        .hero-cta {
+            display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
         }
-        .email-input-group {
-            flex-direction: column;
+        
+        .email-form {
+            display: flex;
+            gap: 1rem;
+            flex: 1;
+            min-width: 300px;
         }
-        .floating-cta {
-            bottom: 1rem;
-            right: 1rem;
-            padding: 0.75rem 1.25rem;
+        
+        .email-input {
+            flex: 1;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .email-input:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(233, 155, 40, 0.1);
+        }
+        
+        .cta-button {
+            background: var(--accent-primary);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .cta-button:hover {
+            background: #d88a1f;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(233, 155, 40, 0.3);
+        }
+        /* About Section */
+        
+        .about {
+            padding: 8rem 0;
+            background: var(--bg-secondary);
+            position: relative;
+        }
+        
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .about-quote {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .quote-text {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .quote-text::before,
+        .quote-text::after {
+            content: '"';
+            font-size: 1.2em;
+            color: var(--accent-primary);
+            position: absolute;
+            top: -0.2em;
+        }
+        
+        .quote-text::before {
+            left: -0.5em;
+        }
+        
+        .quote-text::after {
+            right: -0.5em;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px var(--shadow);
+        }
+        
+        .glass-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .glass-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        /* Why AI Section */
+        
+        .why-ai {
+            padding: 8rem 0;
+            background: var(--bg-accent);
+            color: white;
+            position: relative;
+        }
+        
+        [data-theme="dark"] .why-ai {
+            background: var(--accent-secondary);
+        }
+        
+        [data-theme="modern"] .why-ai {
+            background: var(--accent-secondary);
+        }
+        
+        .glitch-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            animation: glitch-1 2s infinite;
+            color: var(--accent-primary);
+            z-index: -1;
+        }
+        
+        .glitch::after {
+            animation: glitch-2 2s infinite;
+            color: #ff6b6b;
+            z-index: -2;
+        }
+        
+        @keyframes glitch-1 {
+            0%,
+            14%,
+            15%,
+            49%,
+            50%,
+            99%,
+            100% {
+                transform: translate(0);
+            }
+            15%,
+            49% {
+                transform: translate(-2px, 2px);
+            }
+        }
+        
+        @keyframes glitch-2 {
+            0%,
+            20%,
+            21%,
+            62%,
+            63%,
+            99%,
+            100% {
+                transform: translate(0);
+            }
+            21%,
+            62% {
+                transform: translate(2px, -2px);
+            }
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .comparison-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .comparison-card.ai {
+            border-color: var(--accent-primary);
+            background: rgba(233, 155, 40, 0.1);
+        }
+        
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .comparison-card.ai h3 {
+            color: var(--accent-primary);
+        }
+        
+        .comparison-list {
+            list-style: none;
+        }
+        
+        .comparison-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .comparison-list li::before {
+            content: '×';
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .comparison-card.ai .comparison-list li::before {
+            content: '✓';
+            color: var(--accent-primary);
+        }
+        
+        .floating-testimonial {
+            position: absolute;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 300px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(-50%);
+            }
+            50% {
+                transform: translateY(-60%);
+            }
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--accent-primary);
             font-size: 0.9rem;
         }
-        .scroll-to-top {
-            bottom: 1rem;
-            left: 1rem;
-            width: 45px;
-            height: 45px;
+        /* Waitlist Section */
+        
+        .waitlist {
+            padding: 8rem 0;
+            background: var(--bg-primary);
+            text-align: center;
         }
-        .hero-content h1 {
-            font-size: 2.5rem;
+        
+        .waitlist-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
         }
-        .section-header h2 {
-            font-size: 2rem;
+        
+        .waitlist-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .cta-content h2 {
-            font-size: 2rem;
+        
+        .waitlist-form {
+            max-width: 500px;
+            margin: 0 auto;
         }
-    }
-    
-    @media (max-width: 480px) {
-        .nav-container {
-            padding: 0 1rem;
+        
+        .success-message {
+            background: rgba(233, 155, 40, 0.1);
+            border: 1px solid var(--accent-primary);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            color: var(--accent-primary);
+            font-weight: 500;
+            display: none;
+            animation: slideIn 0.3s ease;
         }
-        .section-container {
-            padding: 0 1rem;
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .hero-container {
-            padding: 0 1rem;
+        /* Floating CTA */
+        
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(233, 155, 40, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 3s infinite;
         }
-        .footer-container {
-            padding: 0 1rem;
+        
+        .floating-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(233, 155, 40, 0.4);
         }
-    }
-</style>
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        /* Back to Top */
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--accent-primary);
+            color: white;
+        }
+        /* Footer */
+        
+        .footer {
+            background: var(--bg-secondary);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+        }
+        /* Animations */
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        /* Mobile Responsive */
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-primary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.3s ease;
+                z-index: 999;
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .hamburger {
+                display: flex;
+                z-index: 1001;
+            }
+            .theme-toggle {
+                display: none;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .comparison {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .floating-testimonial {
+                position: static;
+                transform: none;
+                margin: 2rem auto 0;
+                animation: none;
+            }
+            .email-form {
+                flex-direction: column;
+                min-width: 100%;
+            }
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            .back-to-top {
+                bottom: 20px;
+                left: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
 
-<body>
+<body data-theme="default">
     <!-- Loading Screen -->
-    <div id="loader" class="loader">
+    <div class="loader" id="loader">
         <div class="loader-content">
-            <div class="ai-circuit-loader">
-                <div class="circuit-core"></div>
-                <div class="circuit-lines">
-                    <div class="circuit-line"></div>
-                    <div class="circuit-line"></div>
-                    <div class="circuit-line"></div>
-                    <div class="circuit-line"></div>
-                </div>
-                <div class="data-bars">
-                    <div class="data-bar"></div>
-                    <div class="data-bar"></div>
-                    <div class="data-bar"></div>
-                    <div class="data-bar"></div>
-                    <div class="data-bar"></div>
-                </div>
+            <div class="loader-logo">Asimply</div>
+            <div class="financial-loader">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
-            <h2 class="loader-text">Initializing Financial Intelligence</h2>
-            <div class="loading-progress">
-                <div class="progress-bar"></div>
-            </div>
+            <div class="loader-text">Initializing Financial Intelligence...</div>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar">
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
-                    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
-                </svg>
-                <span>Asimply</span>
+            <img src="./asimply-logo copy.png" class="logo">
+            <div class="nav-menu">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#why-ai">Vision</a></li>
+                    <li><a href="#waitlist">Join Waitlist</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="theme-toggle">
+                    <button class="theme-btn active" data-theme="default">Light</button>
+                    <button class="theme-btn" data-theme="dark">Dark</button>
+                    <button class="theme-btn" data-theme="modern">Modern</button>
+                </div>
             </div>
-
-            <div id="navMenu" class="nav-menu">
-                <a href="#how-it-works" class="nav-link">How It Works</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#testimonials" class="nav-link">Testimonials</a>
-                <a href="#contact" class="nav-link">Contact</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-
-            <button id="mobileMenuToggle" class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero" id="hero">
         <div class="hero-bg">
-            <div class="floating-elements">
-                <div class="floating-element">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
-                    </svg>
-                </div>
-                <div class="floating-element">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                    </svg>
-                </div>
-                <div class="floating-element">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                        <polyline points="17 6 23 6 23 12"></polyline>
-                    </svg>
-                </div>
-                <div class="floating-element">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                        <line x1="8" y1="21" x2="16" y2="21"></line>
-                        <line x1="12" y1="17" x2="12" y2="21"></line>
-                    </svg>
-                </div>
+            <div class="data-flow">
+                <div class="data-line" style="top: 20%; animation-delay: 0s;"></div>
+                <div class="data-line" style="top: 40%; animation-delay: 2s;"></div>
+                <div class="data-line" style="top: 60%; animation-delay: 4s;"></div>
+                <div class="data-line" style="top: 80%; animation-delay: 6s;"></div>
             </div>
         </div>
-
         <div class="hero-container">
             <div class="hero-content fade-in">
                 <h1>The CFO You Can't Compete With</h1>
-                <p>Asimply is the intelligent brain powering modern finance. Real-time insights, predictive analytics, and automated decision-making that traditional CFOs simply cannot match.</p>
-
-                <form id="heroEmailForm" class="hero-email-form">
-                    <div class="email-input-group">
-                        <input type="email" id="heroEmail" name="email" placeholder="Enter your email address" required>
-                        <button type="submit">
-                            Join the Waitlist
-                            <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12,5 19,12 12,19"></polyline>
-                            </svg>
-                        </button>
-                    </div>
-                    <div id="heroSuccess" class="success-message" style="display: none;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22,4 12,14.01 9,11.01"></polyline>
-                        </svg> You're on the list. We'll reach out soon.
-                    </div>
-                </form>
-            </div>
-
-            <div class="hero-visual fade-in">
-                <div class="ai-dashboard">
-                    <div class="dashboard-header">
-                        <div class="status-indicator active"></div>
-                        <span>AI CFO Active</span>
-                    </div>
-                    <div class="dashboard-metrics">
-                        <div class="metric">
-                            <span class="metric-label">Revenue Forecast</span>
-                            <span class="metric-value">+24.7%</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Cost Optimization</span>
-                            <span class="metric-value">$2.4M</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">Risk Score</span>
-                            <span class="metric-value">Low</span>
-                        </div>
-                    </div>
-                    <div class="dashboard-chart">
-                        <div class="chart-bars">
-                            <div class="chart-bar" style="height: 60%"></div>
-                            <div class="chart-bar" style="height: 80%"></div>
-                            <div class="chart-bar" style="height: 45%"></div>
-                            <div class="chart-bar" style="height: 90%"></div>
-                            <div class="chart-bar" style="height: 70%"></div>
-                            <div class="chart-bar" style="height: 85%"></div>
-                            <div class="chart-bar" style="height: 55%"></div>
-                            <div class="chart-bar" style="height: 95%"></div>
-                            <div class="chart-bar" style="height: 75%"></div>
-                            <div class="chart-bar" style="height: 65%"></div>
-                        </div>
-                    </div>
+                <p>Asimply replaces outdated human finance with real-time AI decisions</p>
+                <div class="hero-cta">
+                    <form class="email-form" id="heroForm">
+                        <input type="email" class="email-input" placeholder="Enter your email address" required id="heroEmail">
+                        <button type="submit" class="cta-button">Join the Waitlist</button>
+                    </form>
                 </div>
-            </div>
-        </div>
-
-        <div class="scroll-indicator">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6,9 12,15 18,9"></polyline>
-            </svg>
-        </div>
-    </section>
-
-    <!-- Problem & Solution Section -->
-    <section class="problem-solution-section">
-        <div class="section-container">
-            <div class="problem-solution-grid">
-                <div class="problem-content slide-left">
-                    <h2>Traditional CFOs Can't Deliver Real-Time Insights</h2>
-                    <div class="problem-points">
-                        <div class="problem-point">
-                            <div class="problem-icon">❌</div>
-                            <div>
-                                <h4>Reactive Decision Making</h4>
-                                <p>Human CFOs work with outdated data, making decisions based on last quarter's numbers</p>
-                            </div>
-                        </div>
-                        <div class="problem-point">
-                            <div class="problem-icon">❌</div>
-                            <div>
-                                <h4>Limited Processing Power</h4>
-                                <p>Cannot analyze millions of data points simultaneously for comprehensive insights</p>
-                            </div>
-                        </div>
-                        <div class="problem-point">
-                            <div class="problem-icon">❌</div>
-                            <div>
-                                <h4>Emotional Bias</h4>
-                                <p>Human emotions and cognitive biases affect critical financial decisions</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="solution-visual slide-right">
-                    <div class="ai-brain-visual">
-                        <div class="brain-center">
-                            <svg class="brain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
-                                <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
-                            </svg>
-                        </div>
-                        <div class="data-streams">
-                            <div class="data-stream" style="transform: rotate(0deg)">
-                                <div class="data-point"></div>
-                            </div>
-                            <div class="data-stream" style="transform: rotate(60deg)">
-                                <div class="data-point"></div>
-                            </div>
-                            <div class="data-stream" style="transform: rotate(120deg)">
-                                <div class="data-point"></div>
-                            </div>
-                            <div class="data-stream" style="transform: rotate(180deg)">
-                                <div class="data-point"></div>
-                            </div>
-                            <div class="data-stream" style="transform: rotate(240deg)">
-                                <div class="data-point"></div>
-                            </div>
-                            <div class="data-stream" style="transform: rotate(300deg)">
-                                <div class="data-point"></div>
-                            </div>
-                        </div>
-                        <div class="processing-rings">
-                            <div class="ring ring-1"></div>
-                            <div class="ring ring-2"></div>
-                            <div class="ring ring-3"></div>
-                        </div>
-                    </div>
+                <div class="success-message" id="heroSuccess">
+                    You're officially on the list. Welcome to the AI CFO era.
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="how-it-works-section">
+    <!-- About Section -->
+    <section class="about" id="about">
         <div class="section-container">
-            <div class="section-header fade-in">
-                <h2>How Asimply Transforms Your Finance</h2>
-                <p>Four simple steps to revolutionary financial intelligence</p>
+            <div class="about-quote fade-in">
+                <h2 class="quote-text">Not a product. A message from the future of finance.</h2>
             </div>
-
-            <div class="steps-grid">
-                <div class="step-card slide-up">
-                    <div class="step-number">01</div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
-                        </svg>
-                    </div>
-                    <h3>Data Input</h3>
-                    <p>Connect your financial systems and data sources seamlessly</p>
+            <div class="about-content">
+                <div class="glass-card slide-in-left">
+                    <h3>The Evolution</h3>
+                    <p>Traditional finance operates on outdated human limitations—slow processing, emotional bias, and reactive decision-making. Asimply represents the inevitable evolution: AI-powered financial intelligence that processes market data in
+                        real-time, eliminates human error, and makes strategic decisions at the speed of light.</p>
                 </div>
-
-                <div class="step-card slide-up">
-                    <div class="step-number">02</div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
-                            <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
-                        </svg>
-                    </div>
-                    <h3>Real-time AI Analysis</h3>
-                    <p>Our AI processes millions of data points instantly</p>
-                </div>
-
-                <div class="step-card slide-up">
-                    <div class="step-number">03</div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                            <polyline points="17 6 23 6 23 12"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Predictive Forecasting</h3>
-                    <p>Generate accurate forecasts and identify opportunities</p>
-                </div>
-
-                <div class="step-card slide-up">
-                    <div class="step-number">04</div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <rect x="7" y="7" width="3" height="9"></rect>
-                            <rect x="14" y="7" width="3" height="5"></rect>
-                        </svg>
-                    </div>
-                    <h3>Automated CFO Reports</h3>
-                    <p>Receive comprehensive insights and recommendations</p>
+                <div class="glass-card slide-in-right">
+                    <h3>The Reality</h3>
+                    <p>While human CFOs struggle with quarterly reports and spreadsheet analysis, Asimply continuously monitors global financial markets, predicts trends, and executes strategic decisions 24/7. The question isn't whether AI will replace traditional
+                        finance—it's whether you'll adapt in time.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Asimply Section -->
-    <section id="features" class="features-section">
+    <!-- Why AI Section -->
+    <section class="why-ai" id="why-ai">
         <div class="section-container">
-            <div class="section-header fade-in">
-                <h2>Why Asimply Outperforms Traditional CFOs</h2>
-                <p>Experience the future of financial leadership</p>
+            <h2 class="glitch-title">
+                <span class="glitch" data-text="Human-led finance is broken">Human-led finance is broken</span>
+            </h2>
+            <div class="comparison">
+                <div class="comparison-card fade-in">
+                    <h3>Traditional CFO</h3>
+                    <ul class="comparison-list">
+                        <li>Processes data manually</li>
+                        <li>Makes emotional decisions</li>
+                        <li>Limited to business hours</li>
+                        <li>Prone to human error</li>
+                        <li>Reactive to market changes</li>
+                        <li>Requires extensive team support</li>
+                        <li>Slow strategic implementation</li>
+                    </ul>
+                </div>
+                <div class="comparison-card ai fade-in">
+                    <h3>Asimply AI CFO</h3>
+                    <ul class="comparison-list">
+                        <li>Processes millions of data points instantly</li>
+                        <li>Makes purely logical decisions</li>
+                        <li>Operates 24/7 globally</li>
+                        <li>99.9% accuracy rate</li>
+                        <li>Predicts market changes</li>
+                        <li>Autonomous operation</li>
+                        <li>Instant strategic execution</li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="features-grid">
-                <div class="feature-card slide-up glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12,6 12,12 16,14"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Real-time Decisions</h3>
-                    <p>24/7 monitoring and instant analysis of financial metrics</p>
-                </div>
-
-                <div class="feature-card slide-up glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
-                            <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
-                        </svg>
-                    </div>
-                    <h3>Automated Compliance</h3>
-                    <p>Intelligent compliance monitoring that human CFOs cannot match</p>
-                </div>
-
-                <div class="feature-card slide-up glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Financial Intelligence</h3>
-                    <p>Complete visibility into every aspect of your financial health</p>
-                </div>
-
-                <div class="feature-card slide-up glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <h3>Risk Prediction</h3>
-                    <p>Identify and mitigate financial risks before they impact your business</p>
-                </div>
-
-                <div class="feature-card slide-up glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
-                        </svg>
-                    </div>
-                    <h3>Automated Execution</h3>
-                    <p>Execute financial strategies without human delay or bias</p>
-                </div>
-
-                <div class="feature-card slide-up glass-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                    <h3>Scalable Intelligence</h3>
-                    <p>Grows with your business without additional overhead</p>
-                </div>
+            <div class="floating-testimonial">
+                <p class="testimonial-text">"We couldn't keep up with the AI's insights. It saw patterns we missed for months."</p>
+                <div class="testimonial-author">— Former CFO, Fortune 500</div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section">
+    <!-- Waitlist Section -->
+    <section class="waitlist" id="waitlist">
         <div class="section-container">
-            <div class="section-header fade-in">
-                <h2>What Finance Leaders Are Saying</h2>
-                <p>Join the revolution in financial intelligence</p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card slide-up glass-card">
-                    <div class="testimonial-quote">"I replaced my CFO in 3 months. Asimply handles everything our finance team used to do, but faster and more accurately."</div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Sarah Chen</div>
-                            <div class="author-role">CEO, TechFlow Dynamics</div>
-                            <div class="author-company">Series B Startup</div>
-                        </div>
-                    </div>
+            <h2 class="waitlist-title fade-in">Join the Financial Revolution</h2>
+            <p class="waitlist-subtitle fade-in">Be among the first to witness the transformation of finance. The AI CFO era begins with early adopters who recognize the inevitable.</p>
+            <form class="waitlist-form fade-in" id="waitlistForm">
+                <div class="email-form">
+                    <input type="email" class="email-input" placeholder="Your email address" required id="waitlistEmail">
+                    <button type="submit" class="cta-button">Secure Your Position</button>
                 </div>
-
-                <div class="testimonial-card slide-up glass-card">
-                    <div class="testimonial-quote">"The predictive insights are incredible. Asimply identified cost-saving opportunities worth $2.4M that we completely missed."</div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Marcus Rodriguez</div>
-                            <div class="author-role">Former CFO, InnovateCorp</div>
-                            <div class="author-company">Fortune 500</div>
-                        </div>
-                    </div>
+                <div class="success-message" id="waitlistSuccess">
+                    You're officially on the list. Welcome to the AI CFO era.
                 </div>
-
-                <div class="testimonial-card slide-up glass-card">
-                    <div class="testimonial-quote">"Real-time financial intelligence changed our entire business strategy. We make decisions based on live data, not quarterly reports."</div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Emily Watson</div>
-                            <div class="author-role">Founder & CEO</div>
-                            <div class="author-company">GrowthLab</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Join Waitlist Section -->
-    <section class="join-waitlist-section">
-        <div class="section-container">
-            <div class="cta-content fade-in">
-                <h2>Ready to Replace Your CFO?</h2>
-                <p>Join thousands of forward-thinking companies already using AI-powered financial intelligence</p>
-
-                <form id="waitlistForm" class="waitlist-form">
-                    <div class="email-input-group">
-                        <input type="email" id="waitlistEmail" name="email" placeholder="Enter your email to get early access" required>
-                        <button type="submit">
-                            Secure Your Position
-                            <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12,5 19,12 12,19"></polyline>
-                            </svg>
-                        </button>
-                    </div>
-                    <div id="waitlistSuccess" class="success-message" style="display: none;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22,4 12,14.01 9,11.01"></polyline>
-                        </svg> You're on the list. We'll reach out soon.
-                    </div>
-                </form>
-            </div>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="footer">
-        <div class="footer-container">
+    <footer class="footer" id="contact">
+        <div class="section-container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
-                            <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
-                        </svg>
-                        <span>Asimply</span>
-                    </div>
-                    <p>The intelligent brain powering modern finance</p>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                            <span>hello@asimply.ai</span>
-                        </div>
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                            <span>+1 (555) 123-4567</span>
-                        </div>
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            <span>San Francisco, CA</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Product</h4>
-                        <a href="#how-it-works">How It Works</a>
-                        <a href="#features">Features</a>
-                        <a href="#pricing">Pricing</a>
-                        <a href="#demo">Request Demo</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <a href="#about">About</a>
-                        <a href="#careers">Careers</a>
-                        <a href="#blog">Blog</a>
-                        <a href="#press">Press</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Legal</h4>
-                        <a href="#terms">Terms</a>
-                        <a href="#privacy">Privacy</a>
-                        <a href="#security">Security</a>
-                        <a href="#compliance">Compliance</a>
-                    </div>
-                </div>
+                <div class="logo">Asimply</div>
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#terms">Terms</a></li>
+                    <li><a href="#privacy">Privacy</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2025 Asimply. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Twitter">𝕏</a>
-                    <a href="#" aria-label="LinkedIn">in</a>
-                    <a href="#" aria-label="GitHub">⚡</a>
-                </div>
+                <p>&copy; 2025 Asimply. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Elements -->
-    <button id="floatingCTA" class="floating-cta" style="display: none;">Join Waitlist</button>
-    <button id="scrollToTop" class="scroll-to-top" style="display: none;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="12" y1="19" x2="12" y2="5"></line>
-            <polyline points="5,12 12,5 19,12"></polyline>
-        </svg>
-    </button>
+    <!-- Floating CTA -->
+    <a href="#waitlist" class="floating-cta" id="floatingCta">Join Waitlist</a>
 
-    <script src="script.js"></script>
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loader').style.display = 'none';
+                }, 500);
+            }, 2500);
+        });
+
+        // Animated Tab Title
+        let titleIndex = 0;
+        let isTabActive = true;
+        const titles = [
+            'Asimply - The CFO You Can\'t Compete With',
+            '🧠 Still watching Asimply?',
+            '⚡ The AI CFO Revolution',
+            '🔮 Future of Finance'
+        ];
+
+        document.addEventListener('visibilitychange', () => {
+            isTabActive = !document.hidden;
+            if (!isTabActive) {
+                setInterval(() => {
+                    if (!isTabActive) {
+                        titleIndex = (titleIndex + 1) % titles.length;
+                        document.getElementById('pageTitle').textContent = titles[titleIndex];
+                    }
+                }, 2000);
+            } else {
+                document.getElementById('pageTitle').textContent = titles[0];
+                titleIndex = 0;
+            }
+        });
+
+        // Theme Toggle
+        const themeButtons = document.querySelectorAll('.theme-btn');
+        const body = document.body;
+
+        themeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const theme = btn.dataset.theme;
+                body.setAttribute('data-theme', theme);
+
+                themeButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                localStorage.setItem('theme', theme);
+            });
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'default';
+        body.setAttribute('data-theme', savedTheme);
+        document.querySelector(`[data-theme="${savedTheme}"]`).classList.add('active');
+
+        // Navbar Shrink
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('shrink');
+                backToTop.classList.add('visible');
+            } else {
+                navbar.classList.remove('shrink');
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to Top
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form Submissions
+        function handleFormSubmission(formId, successId) {
+            const form = document.getElementById(formId);
+            const successMessage = document.getElementById(successId);
+            const emailInput = form.querySelector('input[type="email"]');
+            const button = form.querySelector('button');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const email = emailInput.value;
+
+                // Add loading state
+                const originalText = button.textContent;
+                button.textContent = 'Processing...';
+                button.disabled = true;
+
+                try {
+                    // Simulate API call - replace with actual endpoint
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    form.reset();
+
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+
+                    console.log('Email submitted:', email);
+
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    alert('Something went wrong. Please try again.');
+                } finally {
+                    // Reset button
+                    button.textContent = originalText;
+                    button.disabled = false;
+                }
+            });
+        }
+
+        // Initialize form handlers
+        handleFormSubmission('heroForm', 'heroSuccess');
+        handleFormSubmission('waitlistForm', 'waitlistSuccess');
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero-bg');
+
+            parallaxElements.forEach(element => {
+                const speed = scrolled * 0.5;
+                element.style.transform = `translateY(${speed}px)`;
+            });
+        });
+
+        // Email Validation
+        document.querySelectorAll('input[type="email"]').forEach(input => {
+            input.addEventListener('input', function() {
+                const email = this.value;
+                const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+                if (email && !isValid) {
+                    this.style.borderColor = '#ff6b6b';
+                } else {
+                    this.style.borderColor = 'var(--glass-border)';
+                }
+            });
+        });
+
+        // Lazy Loading for Images (when added)
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
 </body>
 
 </html>
