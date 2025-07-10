@@ -1,235 +1,765 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asimply | AI-Powered CFO for Smarter Business Finance</title>
-    <meta name="description" content="Asimply is an AI-powered CFO platform transforming financial strategy, budgeting, forecasting, and analytics for modern businesses. Join the waitlist to lead the future of finance.">
-    <link rel="icon" href="/asimply.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Asimply - AI-powered CFO platform for startups and SMEs. Real-time financial intelligence, automated reporting, and smart forecasting tools.">
+    <meta name="keywords" content="AI CFO, startup finance, financial intelligence, automated reporting, forecasting, SME finance">
+    <meta name="author" content="Asimply">
+    <meta property="og:title" content="Asimply - Smarter, Faster, Strategic CFO. Powered by AI.">
+    <meta property="og:description" content="Asimply helps startups manage finances with intelligent automation. Join our waitlist today.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://asimply.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Asimply - AI-Powered CFO Platform">
+    <meta name="twitter:description" content="Transform your startup's financial management with AI-driven insights and automation.">
+
+    <title>Asimply - AI-Powered CFO Platform for Startups</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+         :root {
+            --primary-text: #D4BBA4;
+            --accent-color: #E99B28;
+            --dark-bg: #1a1a1a;
+            --light-bg: #ffffff;
+            --gray-text: #666666;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        
+        header {
+            background: var(--light-bg);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        /* Hero Section */
+        
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gray-text);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .email-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .email-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .email-input:focus {
+            border-color: var(--accent-color);
+        }
+        
+        .cta-button {
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+        
+        .cta-button:hover {
+            background: #d88a1f;
+            transform: translateY(-2px);
+        }
+        /* Features Section */
+        
+        .features {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 3rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: var(--gray-text);
+            line-height: 1.6;
+        }
+        /* Why Choose Section */
+        
+        .why-choose {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .comparison-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-card.highlight {
+            border: 3px solid var(--accent-color);
+            position: relative;
+        }
+        
+        .comparison-card.highlight::before {
+            content: "Recommended";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 1.5rem;
+        }
+        
+        .comparison-list {
+            list-style: none;
+        }
+        
+        .comparison-list li {
+            padding: 0.5rem 0;
+            color: var(--gray-text);
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .comparison-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        /* Customer Persona Section */
+        
+        .personas {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+        
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .persona-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .persona-avatar {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .persona-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 0.5rem;
+        }
+        
+        .persona-card p {
+            color: var(--gray-text);
+        }
+        /* Testimonials Section */
+        
+        .testimonials {
+            padding: 80px 0;
+            background: var(--light-gray);
+            text-align: center;
+        }
+        
+        .coming-soon {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .coming-soon h3 {
+            font-size: 1.5rem;
+            color: var(--primary-text);
+            margin-bottom: 1rem;
+        }
+        
+        .coming-soon p {
+            color: var(--gray-text);
+        }
+        /* Email Signup Section */
+        
+        .email-signup {
+            padding: 80px 0;
+            background: var(--dark-bg);
+            color: white;
+            text-align: center;
+        }
+        
+        .email-signup h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+        
+        .email-signup p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        /* Footer */
+        
+        footer {
+            background: #111;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--primary-text);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .email-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            .email-input {
+                min-width: 100%;
+                margin-bottom: 1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 0 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .features,
+            .why-choose,
+            .personas,
+            .testimonials,
+            .email-signup {
+                padding: 60px 0;
+            }
+        }
+        /* Animations */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        /* Loading states */
+        
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="app-container">
-        <div class="grid-overlay"></div>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="./asimply-logo-removebg-preview.png" class="logo">Asimply</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#why-choose">Why Choose</a></li>
+                <li><a href="#personas">For Teams</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <!-- Header/Navbar -->
-        <header id="navbar">
-            <div class="container">
-                <div class="navbar-content">
-                    <div class="logo">
-                        <a href="#">
-                            <img src="/asimply-logo-removebg-preview.png" alt="Asimply Logo">
-                        </a>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-in">Smarter, Faster, Strategic CFO. Powered by AI.</h1>
+            <p class="fade-in">Asimply helps startups manage finances with intelligent automation.</p>
+            <form class="email-form fade-in" id="heroForm">
+                <input type="email" class="email-input" placeholder="Enter your email address" required>
+                <button type="submit" class="cta-button">Join Waitlist</button>
+            </form>
+            <div class="success-message" id="heroSuccess">
+                Thank you! We'll be in touch soon.
+            </div>
+        </div>
+    </section>
 
-                    <nav class="desktop-nav">
-                        <a href="#features" class="nav-link">Features</a>
-                        <a href="#waitlist" class="nav-link">Join Waitlist</a>
-                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-              <i class="fas fa-sun"></i>
-            </button>
-                    </nav>
-
-                    <button class="mobile-menu-button" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-          </button>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features for Modern Finance</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real-time Dashboards</h3>
+                    <p>Get instant visibility into your financial health with dynamic, AI-powered dashboards that update in real-time.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔮</div>
+                    <h3>Smart Forecasting</h3>
+                    <p>Predict future cash flows and financial trends with machine learning algorithms trained on your business data.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">✅</div>
+                    <h3>Automated Compliance</h3>
+                    <p>Stay compliant with automated reporting and regulatory requirements, reducing manual work and errors.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI-driven Insights</h3>
+                    <p>Receive intelligent recommendations and insights that help you make better financial decisions faster.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="mobile-menu">
-                <div class="container">
-                    <a href="#features" class="nav-link">Features</a>
-                    <a href="#waitlist" class="nav-link">Join Waitlist</a>
-                    <div class="mobile-theme-toggle">
-                        <span>Toggle theme</span>
-                        <button id="mobile-theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-              <i class="fas fa-sun"></i>
-            </button>
-                    </div>
+    <!-- Why Choose Section -->
+    <section class="why-choose" id="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Asimply?</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Manual Finance Management</h3>
+                    <ul class="comparison-list">
+                        <li>Hours of spreadsheet work</li>
+                        <li>Prone to human errors</li>
+                        <li>Limited forecasting accuracy</li>
+                        <li>Reactive decision making</li>
+                        <li>Time-consuming reporting</li>
+                    </ul>
+                </div>
+                <div class="comparison-card highlight">
+                    <h3>Asimply AI CFO</h3>
+                    <ul class="comparison-list">
+                        <li>Automated financial processes</li>
+                        <li>99.9% accuracy with AI validation</li>
+                        <li>Predictive analytics & forecasting</li>
+                        <li>Proactive strategic insights</li>
+                        <li>Instant automated reporting</li>
+                        <li>24/7 financial monitoring</li>
+                        <li>Scalable for growth</li>
+                    </ul>
                 </div>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <main>
-            <!-- Hero Section -->
-            <section id="hero" class="hero-section fade-in-section">
-                <div class="container">
-                    <div class="hero-content">
-                        <div class="coming-soon-badge">Coming Soon</div>
-
-                        <h1 class="hero-title">Automation</h1>
-
-                        <div class="launch-date">
-                            <div class="launch-date-inner">
-                                <i class="fas fa-brain"></i>
-                                <span>Launching Q3 2025</span>
-                            </div>
-                        </div>
-
-                        <p class="hero-description">
-                            Asimply is your intelligent financial co-pilot — analyzing data, forecasting trends, automating reports, and guiding decisions like a full CFO team, but faster.
-                        </p>
-
-                        <a href="#waitlist" class="cta-button">
-              Join the Waitlist
-              <i class="fas fa-arrow-right"></i>
-            </a>
-                    </div>
+    <!-- Customer Persona Section -->
+    <section class="personas" id="personas">
+        <div class="container">
+            <h2 class="section-title">Built for Startups, VCs, and Growth Teams</h2>
+            <div class="personas-grid">
+                <div class="persona-card fade-in">
+                    <div class="persona-avatar">🚀</div>
+                    <h3>Startup Founders</h3>
+                    <p>Focus on building your product while AI handles your financial operations and strategic planning.</p>
                 </div>
-
-                <!-- Floating elements -->
-                <div class="floating-element float-1"></div>
-                <div class="floating-element float-2"></div>
-                <div class="floating-icon float-icon-1">
-                    <i class="fas fa-chart-line"></i>
+                <div class="persona-card fade-in">
+                    <div class="persona-avatar">💼</div>
+                    <h3>VCs & Investors</h3>
+                    <p>Get real-time insights into portfolio company performance with standardized financial reporting.</p>
                 </div>
-                <div class="floating-icon float-icon-2">
-                    <i class="fas fa-chart-bar"></i>
-                </div>
-            </section>
-
-            <!-- Features Section -->
-            <section id="features" class="features-section fade-in-section">
-                <div class="container">
-                    <div class="section-header">
-                        <h2>AI Finance That Works Like a Real CFO</h2>
-                        <p>Asimply empowers your business with real-time insights, intelligent automation, and financial decision support—just like an expert CFO would.</p>
-                    </div>
-
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <h3>AI Financial Intelligence</h3>
-                            <p>Continuously learn from your business data to provide strategic financial insights and flag critical patterns.</p>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3>Dynamic Budgeting & Forecasting</h3>
-                            <p>Adapts to real-time data inputs to keep forecasts accurate and budgets responsive to market shifts.</p>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <h3>Instant, Custom Reports</h3>
-                            <p>One-click access to board-ready financial reports tailored for founders, investors, or stakeholders.</p>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-arrow-trend-up"></i>
-                            </div>
-                            <h3>Decision Intelligence Engine</h3>
-                            <p>Simulate financial outcomes, compare strategies, and get AI-recommended next steps for growth.</p>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                            <h3>Live Business Dashboards</h3>
-                            <p>Monitor KPIs, revenue, cash flow, and burn rate—all from a single intelligent command center.</p>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield"></i>
-                            </div>
-                            <h3>Audit-Ready Compliance</h3>
-                            <p>Stay aligned with financial regulations through automated checks and audit-ready documentation.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Waitlist Section -->
-            <section id="waitlist" class="waitlist-section fade-in-section">
-                <div class="container">
-                    <div class="waitlist-container">
-                        <div class="section-header">
-                            <h2>Get Early Access to Asimply</h2>
-                            <p>Join our waitlist to access private beta, receive product updates, and shape the future of AI-driven financial leadership.</p>
-                        </div>
-
-                        <div id="waitlist-form-container">
-                            <form id="waitlist-form" class="waitlist-form">
-                                <div class="form-group">
-                                    <input type="email" id="email" placeholder="Enter your email address" aria-label="Email address">
-                                    <p id="error-message" class="error-message"></p>
-                                </div>
-                                <button type="submit" class="cta-button">
-                  <span>Join Waitlist</span>
-                  <i class="fas fa-paper-plane"></i>
-                </button>
-                            </form>
-                        </div>
-
-                        <div id="success-message" class="success-message hidden">
-                            <i class="fas fa-check-circle"></i>
-                            <p>Thank you for joining our waitlist! We'll keep you updated on our progress.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Backed By Section -->
-            <section id="backed-by" class="backed-by-section fade-in-section">
-                <div class="container">
-                    <div class="backed-by-header">
-                        <h3>Trusted by Leading Innovators</h3>
-                        <div class="divider"></div>
-                    </div>
-
-                    <div class="backed-by-logos">
-                        <div class="logo-placeholder">VentureX</div>
-                        <div class="logo-placeholder">FinTech Fund</div>
-                        <div class="logo-placeholder">AI Capital</div>
-                        <div class="logo-placeholder">TechStars</div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-logo">
-                        <a href="#">
-                            <img src="/asimply-logo.png" alt="Asimply Logo">
-                        </a>
-                        <p>Asimply brings AI-powered financial intelligence to startups, scaleups, and enterprises.</p>
-                    </div>
-
-                    <div class="footer-social">
-                        <div class="social-links">
-                            <a href="#" aria-label="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/company/asimply/?viewAsMember=true" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" aria-label="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                        <p class="copyright">© <span id="current-year"></span> Asimply. All rights reserved.</p>
-                    </div>
+                <div class="persona-card fade-in">
+                    <div class="persona-avatar">📈</div>
+                    <h3>Growth Teams</h3>
+                    <p>Make data-driven decisions with predictive analytics and automated financial intelligence.</p>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Users Say</h2>
+            <div class="coming-soon">
+                <h3>Coming Soon</h3>
+                <p>We're working with select beta users to perfect Asimply. Join our waitlist to be among the first to experience the future of AI-powered finance management.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Signup Section -->
+    <section class="email-signup">
+        <div class="container">
+            <h2>Ready to Transform Your Finance Operations?</h2>
+            <p>Join hundreds of startups already on our waitlist</p>
+            <form class="email-form" id="footerForm">
+                <input type="email" class="email-input" placeholder="Enter your email address" required>
+                <button type="submit" class="cta-button">Get Early Access</button>
+            </form>
+            <div class="success-message" id="footerSuccess">
+                Thank you! We'll be in touch soon.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Asimply</h3>
+                    <p>AI-powered CFO platform for the next generation of startups and SMEs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="#linkedin">LinkedIn</a></li>
+                        <li><a href="#twitter">Twitter</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Asimply. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Email form submission handling
+        function handleFormSubmission(formId, successId) {
+            const form = document.getElementById(formId);
+            const successMessage = document.getElementById(successId);
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const email = form.querySelector('input[type="email"]').value;
+                const button = form.querySelector('button');
+
+                // Add loading state
+                button.classList.add('loading');
+                button.textContent = 'Joining...';
+
+                // Simulate API call
+                setTimeout(() => {
+                    // Reset button
+                    button.classList.remove('loading');
+                    button.textContent = formId === 'heroForm' ? 'Join Waitlist' : 'Get Early Access';
+
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    form.reset();
+
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+
+                    // In a real application, you would send the email to your backend
+                    console.log('Email submitted:', email);
+                }, 1500);
+            });
+        }
+
+        // Initialize form handlers
+        handleFormSubmission('heroForm', 'heroSuccess');
+        handleFormSubmission('footerForm', 'footerSuccess');
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-based animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--light-bg)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>
