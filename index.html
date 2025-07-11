@@ -3123,7 +3123,7 @@
             const particles = document.querySelectorAll('.particle');
 
             particles.forEach((particle, index) => {
-                const speed = (index + 1) * 0.02;
+                const speed = (index + 1) * 0.01;
                 const yPos = -(scrolled * speed);
                 particle.style.transform = `translateY(${yPos}px)`;
             });
