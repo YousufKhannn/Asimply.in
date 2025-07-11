@@ -2612,6 +2612,7 @@
                     <h3>You're on the list!</h3>
                     <p>Welcome to the future of finance.</p>
                 </div>
+
             </div>
 
             <!-- Hero Visual with Advanced Animations -->
@@ -3221,38 +3222,33 @@
         });
 
         /*  Asimply wait‑list form  →  Google Sheets via Apps Script  */
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxOo7RBEUAhXXIbpmgFQXHi4JoqUvBxYdkyXYVTv-dR6Lk3HtwRF80DirxsTKk7eUOk/exec';
+        const form = document.getElementById('heroForm');
+        const emailInput = document.getElementById('heroEmail');
+        const successMessage = document.getElementById('heroSuccess');
 
-        const heroForm = document.getElementById('heroForm');
-        const heroEmail = document.getElementById('heroEmail');
-        const successBox = document.getElementById('heroSuccess');
-
-        heroForm.addEventListener('submit', async(e) => {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            const email = heroEmail.value.trim();
-            if (!email) return;
 
-            try {
-                await fetch(scriptURL, {
+            const email = emailInput.value;
+
+            fetch('https://script.google.com/macros/s/AKfycbxmNx9_Izuh1D6AbRMqPaANCJypRxI6JCGrMVsR71obtJilWePq7rshpD6wACKnXxes/exec', {
                     method: 'POST',
-                    mode: 'no-cors', // required by Apps Script
+                    mode: 'no-cors',
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
+                        'Content-Type': 'application/x-www-form-urlencoded',
                     },
-                    body: new URLSearchParams({
-                        email
-                    })
+                    body: `email=${encodeURIComponent(email)}`
+                })
+                .then(() => {
+                    successMessage.style.display = 'block';
+                    form.reset();
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
                 });
-                /* UX: clear input + show success */
-                heroEmail.value = '';
-                successBox.style.display = 'block';
-                setTimeout(() => successBox.style.display = 'none', 5000); // hide after 5 s
-            } catch (err) {
-                console.error('Wait‑list error:', err);
-                alert('Oops—please try again in a minute.');
-            }
         });
     </script>
+
 
 
 
