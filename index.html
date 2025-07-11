@@ -3219,7 +3219,45 @@
                 document.body.style.overflow = 'auto';
             }, 3000);
         });
+
+        /*  Asimply wait‑list form  →  Google Sheets via Apps Script  */
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxOo7RBEUAhXXIbpmgFQXHi4JoqUvBxYdkyXYVTv-dR6Lk3HtwRF80DirxsTKk7eUOk/exec';
+
+        const heroForm = document.getElementById('heroForm');
+        const heroEmail = document.getElementById('heroEmail');
+        const successBox = document.getElementById('heroSuccess');
+
+        heroForm.addEventListener('submit', async(e) => {
+            e.preventDefault();
+            const email = heroEmail.value.trim();
+            if (!email) return;
+
+            try {
+                await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors', // required by Apps Script
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        email
+                    })
+                });
+                /* UX: clear input + show success */
+                heroEmail.value = '';
+                successBox.style.display = 'block';
+                setTimeout(() => successBox.style.display = 'none', 5000); // hide after 5 s
+            } catch (err) {
+                console.error('Wait‑list error:', err);
+                alert('Oops—please try again in a minute.');
+            }
+        });
     </script>
+
+
+
+
+
 </body>
 
 </html>
