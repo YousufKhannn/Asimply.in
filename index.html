@@ -2341,6 +2341,42 @@
                 bottom: -50px;
             }
         }
+        
+        .asimply-login {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #E99B28;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 20px;
+            position: relative;
+            transition: all 0.4s ease-in-out;
+            border: 2px solid transparent;
+            border-radius: 30px;
+            background: transparent;
+        }
+        
+        .asimply-login::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            padding: 2px;
+            background: linear-gradient(90deg, #E99B28, #301C27, #E99B28);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            transition: all 0.4s ease-in-out;
+        }
+        
+        .asimply-login:hover {
+            color: #000000;
+            background-color: #E99B28;
+        }
+        
+        .asimply-login:hover::before {
+            filter: brightness(1.2);
+        }
     </style>
 </head>
 
@@ -2399,7 +2435,7 @@
             <div class="brand-float"></div>
 
             <!-- Loading Text -->
-            <div class="loader-text">Activating Financial Intelligence...</div>
+            <div class="loader-text">Activating...</div>
         </div>
     </div>
 
@@ -2443,6 +2479,7 @@
                 <li><a href="#impact">AI Impact</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li class="login"><a href="#contact" class="asimply-login">Login</a></li>
             </ul>
             <div class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
                 <span></span>
