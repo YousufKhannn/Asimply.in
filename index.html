@@ -2377,6 +2377,24 @@
                 bottom: -50px;
             }
         }
+        
+        .founder {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 3px solid #E99B28;
+            box-shadow: 0 8px 20px rgba(233, 155, 40, 0.3);
+            transition: all 0.4s ease-in-out;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        .founder:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(233, 155, 40, 0.4);
+            border-color: #301C27;
+        }
     </style>
 </head>
 
@@ -2749,11 +2767,11 @@
             <h2 class="proof-title fade-in">Founders</h2>
             <div class="proof-grid">
                 <div class="proof-item scale-in">
-                    <div class="proof-placeholder"><img src="./founder1.png" alt=""></div>
+                    <div class="proof-placeholder"><img class="founder" src="./founder1.png" alt=""></div>
                     <p>Yousufkhan</p>
                 </div>
                 <div class="proof-item scale-in">
-                    <div class="proof-placeholder"><img src="./founder2.png" alt=""></div>
+                    <div class="proof-placeholder"><img class="founder" src="./founder2.png" alt=""></div>
                     <p>Mafaz</p>
                 </div>
             </div>
