@@ -3222,30 +3222,29 @@
         });
 
         /*  Asimply wait‑list form  →  Google Sheets via Apps Script  */
-        const form = document.getElementById('heroForm');
-        const emailInput = document.getElementById('heroEmail');
-        const successMessage = document.getElementById('heroSuccess');
+        const form = document.getElementById("heroForm");
+        const emailInput = document.getElementById("heroEmail");
+        const successMessage = document.getElementById("heroSuccess");
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener("submit", function(e) {
             e.preventDefault();
 
             const email = emailInput.value;
+            const scriptURL = "https://script.google.com/macros/s/AKfyc.../exec"; // <-- Paste your Web App URL here
 
-            fetch('https://script.google.com/macros/s/AKfycbxmNx9_Izuh1D6AbRMqPaANCJypRxI6JCGrMVsR71obtJilWePq7rshpD6wACKnXxes/exec', {
-                    method: 'POST',
-                    mode: 'no-cors',
+            fetch(scriptURL, {
+                    method: "POST",
+                    mode: "no-cors",
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
+                        "Content-Type": "application/x-www-form-urlencoded"
                     },
                     body: `email=${encodeURIComponent(email)}`
                 })
                 .then(() => {
-                    successMessage.style.display = 'block';
+                    successMessage.style.display = "block";
                     form.reset();
                 })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                });
+                .catch(err => console.error("Submission failed", err));
         });
     </script>
 
