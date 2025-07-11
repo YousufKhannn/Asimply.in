@@ -2493,7 +2493,7 @@
 
                     <!-- <div class="hero-bottom-card">
                         <div class="bottom-card-content">
-                            <div class="card-icon">🤖</div>
+                            <div class="card-icon"></div>
                             <div class="card-text">
                                 <h4>AI Accuracy</h4>
                                 <p>99.9%</p>
@@ -3063,10 +3063,10 @@
                 // Remove loader from DOM after transition
                 setTimeout(() => {
                     loader.remove();
-                }, 800);
+                }, 900);
 
                 console.log('Asimply AI Financial Intelligence Platform loaded successfully');
-            }, 2000); // Show loader for at least 2 seconds
+            }, 5000); // Show loader for at least 2 seconds
         });
 
         // Prevent scrolling while loading
@@ -3074,7 +3074,7 @@
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.body.style.overflow = 'auto';
-            }, 2000);
+            }, 5000);
         });
     </script>
 </body>
