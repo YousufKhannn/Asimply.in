@@ -2498,28 +2498,19 @@
     </nav>
 
     <!-- Hero Section -->
-    <!-- Include in your <head> -->
+    <!-- Add in <head> -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
 
-    <!-- Main Hero Section -->
     <section class="hero-section">
         <div class="swiper heroSwiper">
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
-                <div class="swiper-slide">
-                    <img src="./posters/banner-1.png" alt="Slide 1">
-                </div>
+                <div class="swiper-slide"><img src="./posters/banner-1.png" alt="Banner 1"></div>
                 <!-- Slide 2 -->
-                <div class="swiper-slide">
-                    <img src="./posters/banner-2.png" alt="Slide 2">
-                </div>
+                <div class="swiper-slide"><img src="./posters/banner-2.png" alt="Banner 2"></div>
                 <!-- Slide 3 -->
-                <div class="swiper-slide">
-                    <img src="./posters/banner-3.png" alt="Slide 3">
-                </div>
+                <div class="swiper-slide"><img src="./posters/banner-3.png" alt="Banner 3"></div>
             </div>
-
-            <!-- Pagination Dots -->
             <div class="swiper-pagination"></div>
         </div>
 
@@ -2529,29 +2520,39 @@
             <button type="submit">Get Early Access</button>
         </form>
 
-        <!-- Success Message -->
         <div class="success-message" id="heroSuccess" role="alert">
             <h3>You're on the list!</h3>
             <p>Welcome to the future of finance.</p>
         </div>
     </section>
 
-    <!-- Include before </body> -->
+    <!-- Add before </body> -->
     <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
     <script>
         new Swiper(".heroSwiper", {
-            slidesPerView: 1,
+            slidesPerView: 1.25,
+            centeredSlides: true,
             loop: true,
+            spaceBetween: 30,
             autoplay: {
-                delay: 3000
+                delay: 3000,
+                disableOnInteraction: false
             },
             pagination: {
                 el: ".swiper-pagination",
-                clickable: true
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 1.5,
+                },
+                1024: {
+                    slidesPerView: 1.7,
+                }
             }
         });
 
-        // Email Form Submission
+        // Email Submission
         const form = document.getElementById("heroForm");
         const emailInput = document.getElementById("heroEmail");
         const successMessage = document.getElementById("heroSuccess");
@@ -2576,7 +2577,7 @@
 
     <style>
         .hero-section {
-            max-width: 1500px;
+            max-width: 100%;
             margin: auto;
             padding: 0;
             text-align: center;
@@ -2584,18 +2585,29 @@
         
         .swiper {
             width: 100%;
+            padding: 20px 0;
+        }
+        
+        .swiper-slide {
+            width: 1500px;
+            max-width: 90%;
             height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
         
         .swiper-slide img {
             width: 100%;
-            height: 500px;
+            height: 100%;
             object-fit: cover;
+            display: block;
             border-radius: 10px;
         }
         
         .email-form {
-            margin-top: 20px;
+            margin-top: 30px;
             display: flex;
             justify-content: center;
             gap: 10px;
