@@ -2498,58 +2498,135 @@
     </nav>
 
     <!-- Hero Section -->
+    <!-- ======= Hero Section with Swiper Slider ======= -->
     <section class="hero" id="home">
         <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    AI-Powered Finance, <span class="hero-highlight">Redefined</span>.
-                </h1>
-                <p class="hero-subtitle">
-                    Transform your business finances with Asimply's intelligent platform. Get 99.9% accurate forecasting, smart expense management, and real-time insights.
-                </p>
-                <form class="hero-form" id="heroForm" aria-label="Email signup form">
-                    <input type="email" class="hero-input" placeholder="Enter your email address" required id="heroEmail" aria-label="Email address">
-                    <button type="submit" class="hero-button">Get Early Access</button>
-                </form>
-                <div class="success-message" id="heroSuccess" role="alert">
-                    <h3>You're on the list!</h3>
-                    <p>Welcome to the future of finance.</p>
-                </div>
-
-            </div>
-
-            <!-- Hero Visual with Advanced Animations -->
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <img src="./post1.png" alt="AI Finance Analytics Dashboard" class="hero-main-image" width="600" height="400">
-
-                    <!-- Data Visualization Background -->
-                    <div class="data-visualization">
-                        <div class="data-circle"></div>
-                        <div class="data-circle"></div>
-                        <div class="data-circle"></div>
-                    </div>
-
-                    <!-- Enhanced Animated Overlay Cards -->
-                    <!-- <div class="hero-overlay-card">
-                        <div class="overlay-title">Revenue</div>
-                        <div class="overlay-value">$2.4M</div>
-                        <div class="overlay-change">↗ +24%</div>
-                    </div> -->
-
-                    <!-- <div class="hero-bottom-card">
-                        <div class="bottom-card-content">
-                            <div class="card-icon"></div>
-                            <div class="card-text">
-                                <h4>AI Accuracy</h4>
-                                <p>99.9%</p>
+            <div class="swiper heroSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="hero-content-slide">
+                            <div class="hero-content">
+                                <h1 class="hero-title">
+                                    AI-Powered Finance, <span class="hero-highlight">Redefined</span>.
+                                </h1>
+                                <p class="hero-subtitle">
+                                    Transform your business finances with Asimply's intelligent platform. Get 99.9% accurate forecasting, smart expense management, and real-time insights.
+                                </p>
+                                <form class="hero-form" id="heroForm" aria-label="Email signup form">
+                                    <input type="email" class="hero-input" placeholder="Enter your email address" required id="heroEmail" aria-label="Email address">
+                                    <button type="submit" class="hero-button">Get Early Access</button>
+                                </form>
+                                <div class="success-message" id="heroSuccess" role="alert">
+                                    <h3>You're on the list!</h3>
+                                    <p>Welcome to the future of finance.</p>
+                                </div>
+                            </div>
+                            <div class="hero-visual">
+                                <img src="./banner-1.png" alt="AI Dashboard 1" class="hero-main-image" />
                             </div>
                         </div>
                     </div>
-                </div> -->
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="hero-content-slide">
+                            <div class="hero-content">
+                                <h1 class="hero-title">
+                                    Meet Your <span class="hero-highlight">Virtual CFO</span>.
+                                </h1>
+                                <p class="hero-subtitle">
+                                    Forget spreadsheets. Let Asimply guide every rupee, every day.
+                                </p>
+                                <form class="hero-form" id="heroForm2" aria-label="Email signup form">
+                                    <input type="email" class="hero-input" placeholder="Enter your email address" required id="heroEmail2" aria-label="Email address">
+                                    <button type="submit" class="hero-button">Join Now</button>
+                                </form>
+                                <div class="success-message" id="heroSuccess2" role="alert">
+                                    <h3>You’re all set!</h3>
+                                    <p>Watch your finances flow smarter.</p>
+                                </div>
+                            </div>
+                            <div class="hero-visual">
+                                <img src="./banner-2.png" alt="AI Dashboard 2" class="hero-main-image" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more slides as needed -->
                 </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
             </div>
+        </div>
     </section>
+    <style>
+        .hero-container {
+            width: 100%;
+            max-width: 1500px;
+            margin: auto;
+            padding: 2rem 0;
+        }
+        
+        .heroSwiper {
+            width: 100%;
+            height: 500px;
+        }
+        
+        .hero-content-slide {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            padding: 2rem;
+            background: #fefefe;
+            height: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero-main-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        /* Swiper pagination styling */
+        
+        .swiper-pagination-bullet {
+            background: #ccc;
+            width: 16px;
+            height: 4px;
+            border-radius: 2px;
+            margin: 0 4px;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: #E99B28;
+            /* Asimply brand color */
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            .hero-content-slide {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-main-image {
+                width: 100%;
+            }
+        }
+    </style>
 
     <!-- Stats Section -->
     <section class="stats">
@@ -3164,6 +3241,26 @@
 
 
 
+    <!-- Swiper CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            new Swiper(".heroSwiper", {
+                slidesPerView: 1,
+                loop: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true
+                },
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false
+                }
+            });
+        });
+    </script>
 
 
 </body>
