@@ -2498,58 +2498,137 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    AI-Powered Finance, <span class="hero-highlight">Redefined</span>.
-                </h1>
-                <p class="hero-subtitle">
-                    Transform your business finances with Asimply's intelligent platform. Get 99.9% accurate forecasting, smart expense management, and real-time insights.
-                </p>
-                <form class="hero-form" id="heroForm" aria-label="Email signup form">
-                    <input type="email" class="hero-input" placeholder="Enter your email address" required id="heroEmail" aria-label="Email address">
-                    <button type="submit" class="hero-button">Get Early Access</button>
-                </form>
-                <div class="success-message" id="heroSuccess" role="alert">
-                    <h3>You're on the list!</h3>
-                    <p>Welcome to the future of finance.</p>
+    <!-- Include in your <head> -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+    <!-- Main Hero Section -->
+    <section class="hero-section">
+        <div class="swiper heroSwiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <img src="./posters/banner-1.png" alt="Slide 1">
                 </div>
-
-            </div>
-
-            <!-- Hero Visual with Advanced Animations -->
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <img src="./post1.png" alt="AI Finance Analytics Dashboard" class="hero-main-image" width="600" height="400">
-
-                    <!-- Data Visualization Background -->
-                    <div class="data-visualization">
-                        <div class="data-circle"></div>
-                        <div class="data-circle"></div>
-                        <div class="data-circle"></div>
-                    </div>
-
-                    <!-- Enhanced Animated Overlay Cards -->
-                    <!-- <div class="hero-overlay-card">
-                        <div class="overlay-title">Revenue</div>
-                        <div class="overlay-value">$2.4M</div>
-                        <div class="overlay-change">↗ +24%</div>
-                    </div> -->
-
-                    <!-- <div class="hero-bottom-card">
-                        <div class="bottom-card-content">
-                            <div class="card-icon"></div>
-                            <div class="card-text">
-                                <h4>AI Accuracy</h4>
-                                <p>99.9%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <img src="./posters/banner-2.png" alt="Slide 2">
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <img src="./posters/banner-3.png" alt="Slide 3">
                 </div>
             </div>
+
+            <!-- Pagination Dots -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- Email Form -->
+        <form class="email-form" id="heroForm">
+            <input type="email" id="heroEmail" placeholder="Enter your email address" required>
+            <button type="submit">Get Early Access</button>
+        </form>
+
+        <!-- Success Message -->
+        <div class="success-message" id="heroSuccess" role="alert">
+            <h3>You're on the list!</h3>
+            <p>Welcome to the future of finance.</p>
+        </div>
     </section>
+
+    <!-- Include before </body> -->
+    <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        new Swiper(".heroSwiper", {
+            slidesPerView: 1,
+            loop: true,
+            autoplay: {
+                delay: 3000
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            }
+        });
+
+        // Email Form Submission
+        const form = document.getElementById("heroForm");
+        const emailInput = document.getElementById("heroEmail");
+        const successMessage = document.getElementById("heroSuccess");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const email = emailInput.value;
+            const scriptURL = "https://script.google.com/macros/s/AKfycbzXz08f2S8jQqYcXqzrM1gBXJBCOF--78ZUMtYAn7_wqHtJQRJtSf9ympIegRToU6T7/exec";
+            fetch(scriptURL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: `email=${encodeURIComponent(email)}`
+            }).then(() => {
+                successMessage.style.display = "block";
+                form.reset();
+            }).catch(err => console.error("Submission failed", err));
+        });
+    </script>
+
+    <style>
+        .hero-section {
+            max-width: 1500px;
+            margin: auto;
+            padding: 0;
+            text-align: center;
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 500px;
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .email-form {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .email-form input {
+            padding: 12px 20px;
+            width: 280px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        
+        .email-form button {
+            padding: 12px 20px;
+            background-color: #E99B28;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .success-message {
+            display: none;
+            margin-top: 15px;
+            color: green;
+            font-weight: 500;
+        }
+    </style>
+
 
     <!-- Stats Section -->
     <section class="stats">
