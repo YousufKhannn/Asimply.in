@@ -539,321 +539,97 @@
             border-radius: 1px;
         }
         /* Hero Section */
+        /* --- STACKED LAYOUT --- */
+        
+        .hero-stack {
+            width: 100%;
+            max-width: 1500px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        /* smaller headline */
+        
+        .slim-title {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            margin-bottom: 1.4rem;
+        }
+        /* --- SLIDER --- */
+        
+        .slider-wrapper {
+            width: 100%;
+            max-width: 1500px;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .slider-track {
+            display: flex;
+            gap: 20px;
+            transition: transform .6s ease;
+        }
+        
+        .slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        /* dots */
+        
+        .dot-row {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 12px;
+            display: flex;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background .3s, transform .3s;
+        }
+        
+        .dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+        /* small email input/button */
+        
+        .small-input {
+            padding: .65rem 1.1rem;
+            font-size: .9rem;
+            border-radius: 30px;
+        }
+        
+        .small-button {
+            padding: .65rem 1.4rem;
+            font-size: .9rem;
+            border-radius: 30px
+        }
+        /* keep whole hero visible first fold */
         
         .hero {
             min-height: 110vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
-            padding: 0 2rem;
-        }
-        
-        .hero-container {
-            max-width: 1200px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            z-index: 2;
-            position: relative;
-        }
-        
-        .hero-content {
-            z-index: 2;
-            position: relative;
-        }
-        
-        .hero-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            color: var(--gray-700);
-            letter-spacing: -2px;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-        
-        .hero-highlight {
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .hero-highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), transparent);
-            animation: expandLine 1.5s ease 1.5s both;
-        }
-        
-        @keyframes expandLine {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--gray-600);
-            margin-bottom: 3rem;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-        
-        .hero-form {
-            display: flex;
-            max-width: 500px;
-            gap: 1rem;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-        
-        .hero-input {
-            flex: 1;
-            padding: 1.25rem 1.5rem;
-            border: 2px solid var(--gray-200);
-            border-radius: 50px;
-            font-size: 1rem;
-            background: var(--white);
-            color: var(--gray-700);
-            transition: all 0.3s ease;
-            outline: none;
-        }
-        
-        .hero-input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px var(--primary-light);
-        }
-        
-        .hero-input::placeholder {
-            color: var(--gray-400);
-        }
-        
-        .hero-button {
-            padding: 1.25rem 2rem;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        
-        .hero-button:hover {
-            background: #d4891f;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px var(--primary-glow);
-        }
-        
-        .hero-button:active {
-            transform: translateY(0);
-        }
-        /* Hero Visual Section with Advanced Animations */
-        
-        .hero-visual {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeInRight 1s ease 0.5s both;
-        }
-        
-        .hero-image-container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            perspective: 1000px;
-        }
-        
-        .hero-main-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px var(--shadow-medium);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: imageFloat 6s ease-in-out infinite, imageGlow 4s ease-in-out infinite alternate;
-            transform-style: preserve-3d;
-        }
-        
-        .hero-main-image:hover {
-            transform: rotateY(5deg) rotateX(5deg) scale(1.02);
-            box-shadow: 0 30px 60px var(--shadow-strong);
-        }
-        
-        @keyframes imageFloat {
-            0%,
-            100% {
-                transform: translateY(0px) rotateZ(0deg);
-            }
-            25% {
-                transform: translateY(-10px) rotateZ(1deg);
-            }
-            50% {
-                transform: translateY(-5px) rotateZ(0deg);
-            }
-            75% {
-                transform: translateY(-15px) rotateZ(-1deg);
-            }
-        }
-        
-        @keyframes imageGlow {
-            0% {
-                box-shadow: 0 20px 40px var(--shadow-medium), 0 0 0 rgba(233, 155, 40, 0);
-            }
-            100% {
-                box-shadow: 0 25px 50px var(--shadow-strong), 0 0 30px rgba(233, 155, 40, 0.2);
-            }
-        }
-        /* Enhanced Image Effects */
-        
-        .hero-image-container::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(45deg, var(--primary), transparent, var(--primary));
-            border-radius: 25px;
-            z-index: -1;
-            opacity: 0;
-            animation: borderGlow 3s ease-in-out infinite alternate;
-        }
-        
-        @keyframes borderGlow {
-            0% {
-                opacity: 0;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0.3;
-                transform: scale(1.02);
-            }
-        }
-        
-        .hero-overlay-card {
-            position: absolute;
-            top: 15px;
-            right: -15px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 1rem;
-            box-shadow: 0 10px 25px var(--shadow-medium);
-            border: 1px solid rgba(233, 155, 40, 0.2);
-            animation: slideInRight 1s ease 1s both, floatCard 4s ease-in-out infinite, cardPulse 2s ease-in-out infinite;
-            max-width: 120px;
-        }
-        
-        .overlay-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-        }
-        
-        .overlay-value {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--gray-700);
-            margin-bottom: 0.1rem;
-        }
-        
-        .overlay-change {
-            font-size: 0.7rem;
-            color: #22c55e;
-            font-weight: 500;
-        }
-        
-        .hero-bottom-card {
-            position: absolute;
-            bottom: -15px;
-            left: -15px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 1rem;
-            box-shadow: 0 10px 25px var(--shadow-medium);
-            border: 1px solid rgba(48, 28, 39, 0.2);
-            animation: slideInLeft 1s ease 1.2s both, floatCard 4s ease-in-out infinite 2s, cardPulse 2s ease-in-out infinite 1s;
-            max-width: 140px;
-        }
-        
-        .bottom-card-content {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .card-icon {
-            width: 30px;
-            height: 30px;
-            background: var(--primary-light);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            flex-shrink: 0;
-            animation: iconSpin 8s linear infinite;
-        }
-        
-        .card-text h4 {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--gray-700);
-            margin-bottom: 0.1rem;
-        }
-        
-        .card-text p {
-            font-size: 0.7rem;
-            color: var(--gray-500);
-        }
-        
-        @keyframes floatCard {
-            0%,
-            100% {
-                transform: translateY(0px) rotateZ(0deg);
-            }
-            50% {
-                transform: translateY(-8px) rotateZ(2deg);
-            }
-        }
-        
-        @keyframes cardPulse {
-            0%,
-            100% {
-                transform: scale(1);
-                box-shadow: 0 10px 25px var(--shadow-medium);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 15px 35px var(--shadow-strong);
-            }
-        }
-        
-        @keyframes iconSpin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
         }
         /* Data Visualization Animation */
         
@@ -2501,42 +2277,44 @@
     </nav>
 
     <!-- Hero Section -->
+    <!-- HERO SECTION – HEADLINE · SLIDER · EMAIL -->
     <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    India’s Smartest CFO, <span class="hero-highlight">Redefined</span>.
-                </h1>
-                <p class="hero-subtitle">
-                    Transform your business finances with Asimply's intelligent platform. Get 99.9% accurate forecasting, smart expense management, and real-time insights.
-                </p>
-                <form class="hero-form" id="heroForm" aria-label="Email signup form">
-                    <input type="email" class="hero-input" placeholder="Enter your email address" required id="heroEmail" aria-label="Email address">
-                    <button type="submit" class="hero-button">Get Early Access</button>
-                </form>
-                <div class="success-message" id="heroSuccess" role="alert">
-                    <h3>You're on the list!</h3>
-                    <p>Welcome to the future of finance.</p>
+        <div class="hero-stack">
+
+            <!-- 1. HEADLINE -->
+            <h1 class="hero-title slim-title">
+                India’s Smartest CFO, <span class="hero-highlight">Redefined</span>.
+            </h1>
+
+            <!-- 2. SLIDER (1500 × 500) -->
+            <div class="slider-wrapper">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slide"><img src="./post1.png" alt="Banner 1"></div>
+                    <div class="slide"><img src="./post2.png" alt="Banner 2"></div>
+                    <div class="slide"><img src="./post3.png" alt="Banner 3"></div>
                 </div>
-
-            </div>
-
-            <!-- Hero Visual with Advanced Animations -->
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <img src="./post1.png" alt="AI Finance Analytics Dashboard" class="hero-main-image" width="600" height="400">
-
-                    <!-- Data Visualization Background -->
-                    <div class="data-visualization">
-                        <div class="data-circle"></div>
-                        <div class="data-circle"></div>
-                        <div class="data-circle"></div>
-                    </div>
-
-
+                <div class="dot-row">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
                 </div>
             </div>
+
+            <!-- 3. EMAIL FORM -->
+            <form class="hero-form" id="heroForm">
+                <input type="email" class="hero-input small-input" id="heroEmail" placeholder="Enter your email address" required>
+                <button type="submit" class="hero-button small-button">Get Early Access</button>
+            </form>
+
+            <!-- Success Message -->
+            <div class="success-message" id="heroSuccess" role="alert">
+                <h3>You're on the list!</h3>
+                <p>Welcome to the future of finance.</p>
+            </div>
+
+        </div>
     </section>
+
 
     <!-- Stats Section -->
     <section class="stats">
@@ -3146,6 +2924,26 @@
         handleFormSubmission("ctaForm", "ctaEmail", "ctaSuccess");
     </script>
     <!-- Asimply - Email Collection Script (Hero + Footer Forms) -->
+    <script>
+        (() => {
+            const track = document.getElementById('sliderTrack');
+            const dots = document.querySelectorAll('.dot');
+            let index = 0,
+                total = dots.length;
+
+            function goTo(i) {
+                index = i;
+                track.style.transform = `translateX(${-index * 100}%)`;
+                dots.forEach((d, idx) => d.classList.toggle('active', idx === index));
+            }
+
+            function next() {
+                goTo((index + 1) % total);
+            }
+            dots.forEach(dot => dot.onclick = () => goTo(+dot.dataset.slide));
+            setInterval(next, 4000); // auto‑rotate 4 s
+        })();
+    </script>
 
 
 
