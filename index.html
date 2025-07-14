@@ -52,7 +52,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -540,76 +539,321 @@
             border-radius: 1px;
         }
         /* Hero Section */
-        /* Full stacked layout for hero */
-        
-        .hero-container.stacked-layout {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            max-width: 100%;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
-        /* Resize title smaller */
-        
-        .slim-title {
-            font-size: clamp(1.8rem, 4vw, 2.4rem);
-            margin-bottom: 1.5rem;
-        }
-        /* Carousel styling */
-        
-        .hero-slider {
-            width: 100%;
-            max-width: 1500px;
-            height: 500px;
-            overflow: hidden;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-        }
-        
-        .hero-slider img {
-            height: 500px;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-        /* Carousel indicators */
-        
-        .carousel-indicators [data-bs-target] {
-            width: 10px;
-            height: 10px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            margin: 0 4px;
-        }
-        /* Smaller form input */
-        
-        .hero-form {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-        
-        .small-input {
-            padding: 0.6rem 1rem;
-            font-size: 0.9rem;
-            border-radius: 30px;
-            width: 250px;
-        }
-        
-        .small-button {
-            padding: 0.6rem 1.5rem;
-            font-size: 0.9rem;
-            border-radius: 30px;
-        }
-        /* Make sure everything fits on first screen */
         
         .hero {
             min-height: 110vh;
-            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
             overflow: hidden;
+            padding: 0 2rem;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .hero-content {
+            z-index: 2;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--gray-700);
+            letter-spacing: -2px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero-highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            animation: expandLine 1.5s ease 1.5s both;
+        }
+        
+        @keyframes expandLine {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-600);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .hero-form {
+            display: flex;
+            max-width: 500px;
+            gap: 1rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .hero-input {
+            flex: 1;
+            padding: 1.25rem 1.5rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 50px;
+            font-size: 1rem;
+            background: var(--white);
+            color: var(--gray-700);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .hero-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+        
+        .hero-input::placeholder {
+            color: var(--gray-400);
+        }
+        
+        .hero-button {
+            padding: 1.25rem 2rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .hero-button:hover {
+            background: #d4891f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--primary-glow);
+        }
+        
+        .hero-button:active {
+            transform: translateY(0);
+        }
+        /* Hero Visual Section with Advanced Animations */
+        
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInRight 1s ease 0.5s both;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            perspective: 1000px;
+        }
+        
+        .hero-main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px var(--shadow-medium);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: imageFloat 6s ease-in-out infinite, imageGlow 4s ease-in-out infinite alternate;
+            transform-style: preserve-3d;
+        }
+        
+        .hero-main-image:hover {
+            transform: rotateY(5deg) rotateX(5deg) scale(1.02);
+            box-shadow: 0 30px 60px var(--shadow-strong);
+        }
+        
+        @keyframes imageFloat {
+            0%,
+            100% {
+                transform: translateY(0px) rotateZ(0deg);
+            }
+            25% {
+                transform: translateY(-10px) rotateZ(1deg);
+            }
+            50% {
+                transform: translateY(-5px) rotateZ(0deg);
+            }
+            75% {
+                transform: translateY(-15px) rotateZ(-1deg);
+            }
+        }
+        
+        @keyframes imageGlow {
+            0% {
+                box-shadow: 0 20px 40px var(--shadow-medium), 0 0 0 rgba(233, 155, 40, 0);
+            }
+            100% {
+                box-shadow: 0 25px 50px var(--shadow-strong), 0 0 30px rgba(233, 155, 40, 0.2);
+            }
+        }
+        /* Enhanced Image Effects */
+        
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, var(--primary), transparent, var(--primary));
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0;
+            animation: borderGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes borderGlow {
+            0% {
+                opacity: 0;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.3;
+                transform: scale(1.02);
+            }
+        }
+        
+        .hero-overlay-card {
+            position: absolute;
+            top: 15px;
+            right: -15px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 10px 25px var(--shadow-medium);
+            border: 1px solid rgba(233, 155, 40, 0.2);
+            animation: slideInRight 1s ease 1s both, floatCard 4s ease-in-out infinite, cardPulse 2s ease-in-out infinite;
+            max-width: 120px;
+        }
+        
+        .overlay-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .overlay-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--gray-700);
+            margin-bottom: 0.1rem;
+        }
+        
+        .overlay-change {
+            font-size: 0.7rem;
+            color: #22c55e;
+            font-weight: 500;
+        }
+        
+        .hero-bottom-card {
+            position: absolute;
+            bottom: -15px;
+            left: -15px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 10px 25px var(--shadow-medium);
+            border: 1px solid rgba(48, 28, 39, 0.2);
+            animation: slideInLeft 1s ease 1.2s both, floatCard 4s ease-in-out infinite 2s, cardPulse 2s ease-in-out infinite 1s;
+            max-width: 140px;
+        }
+        
+        .bottom-card-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .card-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--primary-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            animation: iconSpin 8s linear infinite;
+        }
+        
+        .card-text h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 0.1rem;
+        }
+        
+        .card-text p {
+            font-size: 0.7rem;
+            color: var(--gray-500);
+        }
+        
+        @keyframes floatCard {
+            0%,
+            100% {
+                transform: translateY(0px) rotateZ(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotateZ(2deg);
+            }
+        }
+        
+        @keyframes cardPulse {
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 10px 25px var(--shadow-medium);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 35px var(--shadow-strong);
+            }
+        }
+        
+        @keyframes iconSpin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
         /* Data Visualization Animation */
         
@@ -2258,60 +2502,41 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-container stacked-layout">
-
-            <!-- Title -->
-            <h1 class="hero-title slim-title">
-                India’s Smartest CFO, <span class="hero-highlight">Redefined</span>.
-            </h1>
-
-            <!-- Slider -->
-            <div id="carouselExampleIndicators" class="carousel slide hero-slider" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./post1.png" class="d-block w-100" alt="Slide 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./post2.png" class="d-block w-100" alt="Slide 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./post3.png" class="d-block w-100" alt="Slide 3">
-                    </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    India’s Smartest CFO, <span class="hero-highlight">Redefined</span>.
+                </h1>
+                <p class="hero-subtitle">
+                    Transform your business finances with Asimply's intelligent platform. Get 99.9% accurate forecasting, smart expense management, and real-time insights.
+                </p>
+                <form class="hero-form" id="heroForm" aria-label="Email signup form">
+                    <input type="email" class="hero-input" placeholder="Enter your email address" required id="heroEmail" aria-label="Email address">
+                    <button type="submit" class="hero-button">Get Early Access</button>
+                </form>
+                <div class="success-message" id="heroSuccess" role="alert">
+                    <h3>You're on the list!</h3>
+                    <p>Welcome to the future of finance.</p>
                 </div>
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
-                </div>
+
             </div>
 
-            <!-- Email Input -->
-            <form class="hero-form" id="heroForm" aria-label="Email signup form">
-                <input type="email" class="hero-input small-input" placeholder="Enter your email address" required id="heroEmail">
-                <button type="submit" class="hero-button small-button">Get Early Access</button>
-            </form>
+            <!-- Hero Visual with Advanced Animations -->
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <img src="./post1.png" alt="AI Finance Analytics Dashboard" class="hero-main-image" width="600" height="400">
 
-            <!-- Success Message -->
-            <div class="success-message" id="heroSuccess" role="alert">
-                <h3>You're on the list!</h3>
-                <p>Welcome to the future of finance.</p>
+                    <!-- Data Visualization Background -->
+                    <div class="data-visualization">
+                        <div class="data-circle"></div>
+                        <div class="data-circle"></div>
+                        <div class="data-circle"></div>
+                    </div>
+
+
+                </div>
             </div>
-        </div>
     </section>
-
-    <!-- Auto Carousel -->
-    <script>
-        const carousel = document.querySelector('#carouselExampleIndicators');
-        if (carousel) {
-            new bootstrap.Carousel(carousel, {
-                interval: 4000,
-                ride: 'carousel',
-                pause: false,
-                wrap: true
-            });
-        }
-    </script>
-
 
     <!-- Stats Section -->
     <section class="stats">
