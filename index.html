@@ -2981,26 +2981,7 @@
         handleFormSubmission("ctaForm", "ctaEmail", "ctaSuccess");
     </script>
     <!-- Asimply - Email Collection Script (Hero + Footer Forms) -->
-    <script>
-        (() => {
-            const track = document.getElementById('sliderTrack');
-            const dots = document.querySelectorAll('.dot');
-            let index = 0,
-                total = dots.length;
 
-            function goTo(i) {
-                index = i;
-                track.style.transform = `translateX(${-index * 100}%)`;
-                dots.forEach((d, idx) => d.classList.toggle('active', idx === index));
-            }
-
-            function next() {
-                goTo((index + 1) % total);
-            }
-            dots.forEach(dot => dot.onclick = () => goTo(+dot.dataset.slide));
-            setInterval(next, 4000); // auto‑rotate 4 s
-        })();
-    </script>
 
 
 
