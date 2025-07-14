@@ -2501,7 +2501,7 @@
         </div>
     </nav>
 
-    <!-- Include Bootstrap CSS & JS in your <head> or before this section -->
+    <!-- Include Bootstrap CSS & JS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -2514,17 +2514,17 @@
                 India’s Smartest CFO, <span class="text-warning">Redefined</span>.
             </h1>
 
-            <!-- Bootstrap Carousel Slider -->
-            <div id="asimplySlider" class="carousel slide mx-auto mb-5" data-bs-ride="carousel" style="max-width: 80%;">
-                <div class="carousel-inner rounded shadow">
+            <!-- Slider (1500x500) -->
+            <div id="asimplySlider" class="carousel slide mx-auto mb-4" data-bs-ride="carousel" style="max-width: 1500px; height: 500px;">
+                <div class="carousel-inner rounded shadow" style="height: 100%;">
                     <div class="carousel-item active">
-                        <img src="./post1.png" class="d-block w-100" alt="Slide 1" style="height: 500px; object-fit: cover;">
+                        <img src="./post1.png" class="d-block w-100" alt="Slide 1" style="height: 100%; object-fit: cover;">
                     </div>
                     <div class="carousel-item">
-                        <img src="./post2.png" class="d-block w-100" alt="Slide 2" style="height: 500px; object-fit: cover;">
+                        <img src="./post2.png" class="d-block w-100" alt="Slide 2" style="height: 100%; object-fit: cover;">
                     </div>
                     <div class="carousel-item">
-                        <img src="./post3.png" class="d-block w-100" alt="Slide 3" style="height: 500px; object-fit: cover;">
+                        <img src="./post3.png" class="d-block w-100" alt="Slide 3" style="height: 100%; object-fit: cover;">
                     </div>
                 </div>
                 <div class="carousel-indicators mt-3">
@@ -2534,13 +2534,13 @@
                 </div>
             </div>
 
-            <!-- Email Signup Form -->
+            <!-- Email Signup Form (Smaller Style) -->
             <form class="d-flex justify-content-center gap-2 flex-wrap" id="heroForm" aria-label="Email signup form">
-                <input type="email" class="form-control w-50" placeholder="Enter your email address" required id="heroEmail" aria-label="Email address">
+                <input type="email" class="form-control w-auto px-3" placeholder="Enter your email" required id="heroEmail" style="max-width: 300px;" aria-label="Email address">
                 <button type="submit" class="btn btn-warning px-4">Get Early Access</button>
             </form>
 
-            <!-- Success message (initially hidden) -->
+            <!-- Success message -->
             <div class="mt-3 text-success" id="heroSuccess" role="alert" style="display: none;">
                 <h5>You're on the list! 🚀</h5>
             </div>
@@ -2548,22 +2548,22 @@
         </div>
     </section>
 
+    <!-- Slider Autoplay Script -->
     <script>
         const carousel = document.querySelector('#asimplySlider');
         if (carousel) {
             new bootstrap.Carousel(carousel, {
-                interval: 5000, // change every 5s
+                interval: 5000,
                 ride: 'carousel'
             });
         }
 
-        // Optional: Show success message after submit
+        // Show success message on form submit
         document.getElementById("heroForm").addEventListener("submit", function(e) {
             e.preventDefault();
             document.getElementById("heroSuccess").style.display = "block";
         });
     </script>
-
 
     <!-- Stats Section -->
     <section class="stats">
