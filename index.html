@@ -51,6 +51,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -109,6 +111,8 @@
             }
         }
     </script>
+
+
 
     <style>
         .asimply-login-btn {
@@ -2497,10 +2501,40 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Bootstrap Slider and Email Input -->
     <section class="hero" id="home">
         <div class="hero-container">
-            <div class="hero-content">
+
+            <!-- Bootstrap Carousel -->
+            <div id="carouselExampleIndicators" class="carousel slide mb-4" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./post1.png" class="d-block w-100" alt="Slide 1" style="height: 500px; object-fit: cover;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./post2.png" class="d-block w-100" alt="Slide 2" style="height: 500px; object-fit: cover;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./post3.png" class="d-block w-100" alt="Slide 3" style="height: 500px; object-fit: cover;">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+            </div>
+
+            <!-- Email Input Form -->
+            <div class="hero-content text-center">
                 <h1 class="hero-title">
                     India’s Smartest CFO, <span class="hero-highlight">Redefined</span>.
                 </h1>
@@ -2511,44 +2545,13 @@
                     <input type="email" class="hero-input" placeholder="Enter your email address" required id="heroEmail" aria-label="Email address">
                     <button type="submit" class="hero-button">Get Early Access</button>
                 </form>
-                <div class="success-message" id="heroSuccess" role="alert">
+                <div class="success-message" id="heroSuccess" role="alert" style="display: none;">
                     <h3>You're on the list!</h3>
                     <p>Welcome to the future of finance.</p>
                 </div>
-
             </div>
 
-            <!-- Hero Visual with Advanced Animations -->
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <img src="./post1.png" alt="AI Finance Analytics Dashboard" class="hero-main-image" width="600" height="400">
-
-                    <!-- Data Visualization Background -->
-                    <div class="data-visualization">
-                        <div class="data-circle"></div>
-                        <div class="data-circle"></div>
-                        <div class="data-circle"></div>
-                    </div>
-
-                    <!-- Enhanced Animated Overlay Cards -->
-                    <!-- <div class="hero-overlay-card">
-                        <div class="overlay-title">Revenue</div>
-                        <div class="overlay-value">$2.4M</div>
-                        <div class="overlay-change">↗ +24%</div>
-                    </div> -->
-
-                    <!-- <div class="hero-bottom-card">
-                        <div class="bottom-card-content">
-                            <div class="card-icon"></div>
-                            <div class="card-text">
-                                <h4>AI Accuracy</h4>
-                                <p>99.9%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                </div>
-            </div>
+        </div>
     </section>
 
     <!-- Stats Section -->
