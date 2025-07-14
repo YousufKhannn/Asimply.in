@@ -539,24 +539,54 @@
             border-radius: 1px;
         }
         /* Hero Section */
-        /* --- STACKED LAYOUT --- */
+        
+        .hero {
+            min-height: 110vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
         
         .hero-stack {
+            max-width: 1200px;
             width: 100%;
-            max-width: 1500px;
-            margin: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            gap: 3rem;
         }
-        /* smaller headline */
         
-        .slim-title {
-            font-size: clamp(1.8rem, 4vw, 2.4rem);
-            margin-bottom: 1.4rem;
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0;
+            color: var(--gray-700);
+            letter-spacing: -2px;
+            animation: fadeInUp 1s ease 0.2s both;
         }
-        /* --- SLIDER --- */
+        
+        .hero-highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            animation: expandLine 1.5s ease 1.5s both;
+        }
         
         .slider-wrapper {
             width: 100%;
@@ -564,13 +594,13 @@
             height: 500px;
             position: relative;
             overflow: hidden;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
         
         .slider-track {
             display: flex;
             gap: 20px;
-            transition: transform .6s ease;
+            transition: transform 0.6s ease;
         }
         
         .slide {
@@ -578,7 +608,7 @@
             flex-shrink: 0;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
         }
         
         .slide img {
@@ -586,7 +616,6 @@
             height: 500px;
             object-fit: cover;
         }
-        /* dots */
         
         .dot-row {
             position: absolute;
@@ -603,33 +632,63 @@
             border-radius: 50%;
             background: #ccc;
             cursor: pointer;
-            transition: background .3s, transform .3s;
+            transition: background 0.3s, transform 0.3s;
         }
         
         .dot.active {
             background: var(--primary);
             transform: scale(1.2);
         }
-        /* small email input/button */
         
-        .small-input {
-            padding: .65rem 1.1rem;
-            font-size: .9rem;
-            border-radius: 30px;
-        }
-        
-        .small-button {
-            padding: .65rem 1.4rem;
-            font-size: .9rem;
-            border-radius: 30px
-        }
-        /* keep whole hero visible first fold */
-        
-        .hero {
-            min-height: 110vh;
+        .hero-form {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            max-width: 500px;
+            gap: 1rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .hero-input {
+            flex: 1;
+            padding: 1.25rem 1.5rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 50px;
+            font-size: 1rem;
+            background: var(--white);
+            color: var(--gray-700);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .hero-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+        
+        .hero-input::placeholder {
+            color: var(--gray-400);
+        }
+        
+        .hero-button {
+            padding: 1.25rem 2rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .hero-button:hover {
+            background: #d4891f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--primary-glow);
+        }
+        
+        .hero-button:active {
+            transform: translateY(0);
         }
         /* Data Visualization Animation */
         
@@ -2277,16 +2336,15 @@
     </nav>
 
     <!-- Hero Section -->
-    <!-- HERO SECTION – HEADLINE · SLIDER · EMAIL -->
     <section class="hero" id="home">
         <div class="hero-stack">
 
             <!-- 1. HEADLINE -->
-            <h1 class="hero-title slim-title">
+            <h1 class="hero-title">
                 India’s Smartest CFO, <span class="hero-highlight">Redefined</span>.
             </h1>
 
-            <!-- 2. SLIDER (1500 × 500) -->
+            <!-- 2. SLIDER -->
             <div class="slider-wrapper">
                 <div class="slider-track" id="sliderTrack">
                     <div class="slide"><img src="./post1.png" alt="Banner 1"></div>
@@ -2301,9 +2359,9 @@
             </div>
 
             <!-- 3. EMAIL FORM -->
-            <form class="hero-form" id="heroForm">
-                <input type="email" class="hero-input small-input" id="heroEmail" placeholder="Enter your email address" required>
-                <button type="submit" class="hero-button small-button">Get Early Access</button>
+            <form class="hero-form" id="heroForm" aria-label="Email signup form">
+                <input type="email" class="hero-input" placeholder="Enter your email address" required id="heroEmail" aria-label="Email address">
+                <button type="submit" class="hero-button">Get Early Access</button>
             </form>
 
             <!-- Success Message -->
@@ -2314,7 +2372,6 @@
 
         </div>
     </section>
-
 
     <!-- Stats Section -->
     <section class="stats">
@@ -2948,6 +3005,27 @@
 
 
 
+    <script>
+        (() => {
+            const track = document.getElementById('sliderTrack');
+            const dots = document.querySelectorAll('.dot');
+            let index = 0,
+                total = dots.length;
+
+            function goTo(i) {
+                index = i;
+                track.style.transform = `translateX(${-index * 100}%)`;
+                dots.forEach((d, idx) => d.classList.toggle('active', idx === index));
+            }
+
+            function next() {
+                goTo((index + 1) % total);
+            }
+
+            dots.forEach(dot => dot.onclick = () => goTo(+dot.dataset.slide));
+            setInterval(next, 4000);
+        })();
+    </script>
 
 
 
