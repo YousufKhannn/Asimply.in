@@ -691,7 +691,7 @@ body {
 }
 
 .social-cta {
-    font-size: 20px;
+    font-size: 16px;
     color: #e99b28;
     font-weight: 600;
     margin-bottom: 20px;
@@ -703,7 +703,7 @@ body {
 
 .social-cta::after {
     content: "↗";
-    font-size: 18px;
+    font-size: 17px;
     color: #e99b28;
 }
 
