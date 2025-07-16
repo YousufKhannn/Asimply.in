@@ -691,7 +691,7 @@ body {
 }
 
 .social-cta {
-    font-size: 28px;
+    font-size: 20px;
     color: #e99b28;
     font-weight: 600;
     margin-bottom: 20px;
@@ -703,7 +703,7 @@ body {
 
 .social-cta::after {
     content: "↗";
-    font-size: 16px;
+    font-size: 18px;
     color: #e99b28;
 }
 
@@ -717,7 +717,7 @@ body {
 .social-link-text {
     color: #301c27;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
