@@ -13,16 +13,10 @@
     <style>
         /* Reset and Base Styles */
         
-        @font-face {
-            font-family: Firoz;
-            src: url(./fonts/4a55e3a359b42768-s.p.ttf);
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Firoz;
         }
         
         html {
@@ -30,6 +24,7 @@
         }
         
         body {
+            font-family: "Inter", -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             color: #000000;
             background-color: #ffffff;
@@ -166,12 +161,12 @@
             top: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(135deg, #fff8f0 0%, #ffffff 100%);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(233, 155, 40, 0.1);
             z-index: 1000;
             transition: all 0.3s ease;
-            padding: 1.5vh;
+            padding: 0;
         }
         
         .navbar.scrolled {
@@ -202,25 +197,28 @@
             transition: transform 0.3s ease;
         }
         
+        .nav-brand:hover .nav-logo {
+            transform: rotate(5deg) scale(1.05);
+        }
+        
         .brand-name {
             font-size: 1.5rem;
             font-weight: 700;
-            font-family: ;
-            color: #301c27;
+            color: #e99b28;
             transition: color 0.3s ease;
         }
         
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 3rem;
+            gap: 2rem;
         }
         
         .nav-link {
             color: #301c27;
             text-decoration: none;
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             position: relative;
             padding: 0.5rem 0;
@@ -233,12 +231,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #301c27;
+            background: #e99b28;
             transition: width 0.3s ease;
         }
         
         .nav-link:hover {
-            color: #301c27;
+            color: #e99b28;
         }
         
         .nav-link:hover::after {
@@ -248,38 +246,34 @@
         
         .nav-cta-btn,
         .email-button {
+            /* Removed .newsletter-btn from this selector */
             background-color: #ffffff;
             border: 2px solid #e99b28;
             color: #e99b28;
-            border-radius: 999px;
-            /* More elegant pill shape */
+            border-radius: 50px;
             font-weight: 600;
-            font-size: 15px;
-            font-family: 'Inter', sans-serif;
-            padding: 0.75rem 1.75rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
-            letter-spacing: 0.3px;
+            transition: all 0.4s ease-in-out;
         }
         
         .nav-cta-btn:hover,
         .email-button:hover {
+            /* Removed .newsletter-btn from this selector */
             background-color: #e99b28;
             color: #ffffff;
-            transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(233, 155, 40, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 155, 40, 0.3);
         }
-        /* Specific Sizes */
+        /* Specific Button Sizes */
         
         .nav-cta-btn {
-            padding: 0.7rem 1.6rem;
-            font-size: 14.5px;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
         }
         
         .email-button {
-            padding: 13px 26px;
-            font-size: 15px;
+            padding: 12px 24px;
+            font-size: 14px;
         }
         /* Reverted Newsletter Button Style */
         
@@ -335,8 +329,8 @@
         /* Combined Hero Section */
         
         .hero-combined-section {
-            background: white;
-            padding: 120px 0 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #fff8f0 100%);
+            padding: 90px 0 40px;
             position: relative;
             overflow: hidden;
             min-height: 100vh;
@@ -364,7 +358,7 @@
         
         .trust-line-top {
             text-align: center;
-            color: #301c27b6;
+            margin-bottom: 25px;
         }
         
         .trust-line {
@@ -392,8 +386,24 @@
         }
         
         .highlight-text {
+            color: #e99b28;
             position: relative;
             display: inline-block;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .highlight-text::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #e99b28, #f4a942);
+            border-radius: 2px;
+            animation: expandLine 1.5s ease 0.6s forwards;
+            transform: scaleX(0);
+            transform-origin: left;
         }
         
         .hero-subtitle-compact {
@@ -406,7 +416,7 @@
         /* Hero Slider */
         
         .hero-slider-wrapper {
-            max-width: 2000px;
+            max-width: 1050px;
             margin: 0 auto 25px;
             opacity: 0;
             animation: fadeInUp 1s ease 0.6s forwards;
@@ -414,7 +424,7 @@
         
         .slider-container {
             position: relative;
-            height: 370px;
+            height: 280px;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -597,7 +607,6 @@
         }
         
         .features-grid {
-            cursor: pointer;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
@@ -929,108 +938,221 @@
                 transform: scaleX(1);
             }
         }
-        /* Responsive Design */
+        /* How Asimply Works Section */
+        
+        .how-it-works-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fdfdfd 0%, #f8f8f8 100%);
+            /* Very light gradient */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .how-it-works-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 10% 90%, rgba(233, 155, 40, 0.03) 0%, transparent 30%), radial-gradient(circle at 90% 10%, rgba(48, 28, 39, 0.02) 0%, transparent 30%);
+            pointer-events: none;
+            animation: subtleBackgroundMove 20s infinite alternate ease-in-out;
+        }
+        
+        @keyframes subtleBackgroundMove {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+        
+        .how-it-works-section .section-title {
+            margin-bottom: 15px;
+        }
+        
+        .how-it-works-section .section-subtitle {
+            font-size: 1.2rem;
+            color: #666666;
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+        
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            position: relative;
+            justify-content: center;
+            align-items: stretch;
+            /* Ensure cards stretch to same height */
+        }
+        
+        .how-it-works-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(233, 155, 40, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .how-it-works-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(233, 155, 40, 0.15);
+            border-color: rgba(233, 155, 40, 0.3);
+        }
+        
+        .how-it-works-card:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+        
+        .how-it-works-card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+        
+        .how-it-works-card:nth-child(5) {
+            animation-delay: 0.7s;
+        }
+        
+        .how-it-works-card:nth-child(7) {
+            animation-delay: 0.9s;
+        }
+        
+        .card-icon {
+            color: #e99b28;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(233, 155, 40, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(233, 155, 40, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .how-it-works-card:hover .card-icon {
+            background: #e99b28;
+            color: #ffffff;
+            box-shadow: 0 0 25px rgba(233, 155, 40, 0.5);
+        }
+        
+        .card-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .how-it-works-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #301c27;
+            margin-bottom: 10px;
+        }
+        
+        .how-it-works-card p {
+            font-size: 0.95rem;
+            color: #666666;
+            line-height: 1.6;
+            flex-grow: 1;
+            /* Allow description to take available space */
+        }
+        /* Connector Lines */
+        
+        .how-it-works-connector {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            /* For vertical alignment in grid */
+            padding: 0 15px;
+            /* Space for the arrow */
+        }
+        
+        .how-it-works-connector::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #e99b28, #f4a942);
+            border-radius: 1px;
+            animation: drawLine 1s ease forwards;
+            animation-delay: 0.5s;
+            /* Delay after card appears */
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+        
+        .how-it-works-connector::after {
+            content: '▶';
+            /* Right arrow */
+            position: absolute;
+            right: 0;
+            font-size: 1.2rem;
+            color: #e99b28;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+            animation-delay: 1.5s;
+            /* Appear after line is drawn */
+        }
+        
+        @keyframes drawLine {
+            to {
+                transform: scaleX(1);
+            }
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        /* Responsive adjustments for connectors */
         
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: right 0.3s ease;
-                border-top: 1px solid rgba(233, 155, 40, 0.1);
-            }
-            .nav-menu.active {
-                right: 0;
-            }
-            .nav-toggle {
-                display: flex;
-            }
-            .nav-link {
-                font-size: 1.1rem;
-                margin: 0.5rem 0;
-            }
-            .nav-cta-btn {
-                margin-top: 1rem;
-            }
-            .hero-combined-section {
-                padding: 90px 0 30px;
-                min-height: 100vh;
-            }
-            .trust-line {
-                font-size: 14px;
-            }
-            .email-form {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .email-button {
-                width: 100%;
-            }
-            .hero-title-compact {
-                font-size: 1.6rem;
-            }
-            .hero-subtitle-compact {
-                font-size: 0.9rem;
-            }
-            .slider-container {
-                height: 220px;
-            }
-            .slide-overlay {
-                padding: 20px;
-            }
-            .slide-overlay h3 {
-                font-size: 1.2rem;
-            }
-            .slide-overlay p {
-                font-size: 12px;
-            }
-            .slider-nav {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
-            }
-            .slider-nav.prev {
-                left: 10px;
-            }
-            .slider-nav.next {
-                right: 10px;
-            }
-            .about-section {
-                padding: 60px 0;
-            }
-            .features-grid {
+            .how-it-works-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                /* Stack vertically */
             }
-            .social-links-top {
-                gap: 20px;
+            .how-it-works-connector {
+                width: 2px;
+                /* Vertical line */
+                height: 60px;
+                /* Height between cards */
+                padding: 15px 0;
+                margin: 0 auto;
+                /* Center the vertical line */
             }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                text-align: center;
+            .how-it-works-connector::before {
+                width: 2px;
+                height: 100%;
+                transform: scaleY(0);
+                /* Animate vertically */
+                transform-origin: top;
             }
-            .footer-brand-section {
-                grid-column: 1;
-            }
-            .newsletter-form {
-                flex-direction: column;
-            }
-            .footer-bottom-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
+            .how-it-works-connector::after {
+                content: '▼';
+                /* Down arrow */
+                top: auto;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
         
@@ -1093,14 +1215,6 @@
                 font-size: 16px;
             }
         }
-        
-        span {
-            color: #E99B28;
-        }
-        
-        #trust {
-            color: #301c27;
-        }
     </style>
 </head>
 
@@ -1109,7 +1223,7 @@
     <div class="loader-wrapper" id="loader">
         <div class="loader-container">
             <div class="logo-loader">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo-icon-Gh3SBif0VQrgxFGRmVVjIJvKaiiiBY.png" alt="Asimply Logo" class="loader-logo">
+                <img src="/images/asimply-logo.png" alt="Asimply Logo" class="loader-logo">
             </div>
             <div class="loader-text">
                 <h2>Asimply</h2>
@@ -1125,19 +1239,19 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo-icon-Gh3SBif0VQrgxFGRmVVjIJvKaiiiBY.png" alt="Asimply Logo" class="nav-logo">
-                <span class="brand-name">Asimply</span >
+                <img src="/images/asimply-logo.png" alt="Asimply Logo" class="nav-logo">
+                <span class="brand-name">Asimply</span>
             </div>
 
             <div class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
-                <a href="#services" class="nav-link">Services </a>
-                <a href="#solutions" class="nav-link">Solutions </a>
-                <a href="#resources" class="nav-link">Resources </a>
-                <a href="#company" class="nav-link">Company </a>
-                <a href="https://www.linkedin.com/company/asimply/" class="nav-link" style="color: #e99b28; font-weight: 600;">&#9889; LinkedIn</a>
-
+                <a href="#services" class="nav-link">Services &#x25BE;</a>
+                <a href="#solutions" class="nav-link">Solutions &#x25BE;</a>
+                <a href="#resources" class="nav-link">Resources &#x25BE;</a>
+                <a href="#company" class="nav-link">Company &#x25BE;</a>
+                <a href="#" class="nav-link" style="color: #e99b28; font-weight: 600;">&#9889; Book a Demo</a>
+                <button class="nav-cta-btn">Login</button>
             </div>
 
             <div class="nav-toggle" id="navToggle">
@@ -1152,17 +1266,16 @@
     <section class="hero-combined-section" id="home">
         <div class="container">
             <!-- Trust Line at Top -->
+            <div class="trust-line-top">
+                <p class="trust-line">Join the next wave of 10,000+ businesses transforming finance with Asimply.</p>
+            </div>
 
             <!-- Compact Headline -->
             <div class="hero-headline">
                 <h1 class="hero-title-compact">
-                    India's Smartest CFO, Redefined.
+                    India's Smartest CFO, <span class="highlight-text">Redefined</span>.
                 </h1>
-                <div class="trust-line-top">
-                    <p class="trust-line">Join the next wave of <b id="trust">10,000+ businesses transforming finance with Asimply.</b></p>
-                </div>
-
-
+                <p class="hero-subtitle-compact">AI-driven financial intelligence, decision support, and automation.</p>
             </div>
 
             <!-- Slider Section -->
@@ -1170,13 +1283,13 @@
                 <div class="slider-container">
                     <div class="slider-track" id="sliderTrack">
                         <div class="slider-slide active">
-                            <img src="./posters/banner-1.png" alt="AI-Powered Financial Dashboard" class="slide-image">
+                            <img src="./banner-1.png" alt="AI-Powered Financial Dashboard" class="slide-image">
                         </div>
                         <div class="slider-slide">
-                            <img src="./posters/banner-3.png" alt="Real-Time Financial Analytics" class="slide-image">
+                            <img src="./banner-2.png" alt="Real-Time Financial Analytics" class="slide-image">
                         </div>
                         <div class="slider-slide">
-                            <img src="./posters/banner-2.png" alt="Automated Financial Planning" class="slide-image">
+                            <img src="./banner-3.png" alt="Automated Financial Planning" class="slide-image">
                         </div>
                     </div>
                     <div class="slider-dots">
@@ -1209,7 +1322,7 @@
             <div class="about-content">
                 <h2 class="section-title">What is Asimply?</h2>
                 <p class="about-description">
-                    Asimply is a futuristic CFO platform powered by AI delivering insights, forecasting, automation, and strategic support for founders, finance teams, and decision-makers. It blends dashboards, metrics, cash flow, P&L, and strategic planning in one interface.
+                    Asimply is a futuristic CFO platform powered by AI — delivering insights, forecasting, automation, and strategic support for founders, finance teams, and decision-makers. It blends dashboards, metrics, cash flow, P&L, and strategic planning in one interface.
                 </p>
                 <div class="features-grid">
                     <div class="feature-item">
@@ -1232,6 +1345,48 @@
         </div>
     </section>
 
+    <!-- How Asimply Works Section -->
+    <section class="how-it-works-section" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How Asimply Works</h2>
+            <p class="section-subtitle">Meet your new AI CFO in action.</p>
+
+            <div class="how-it-works-grid">
+                <div class="how-it-works-card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plug-zap"><path d="M13 2v10"/><path d="M16 10h-6"/><path d="M19 10V2l-3 8h-4L8 2v8H5l-2 3v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3l-2-3h-3Z"/><path d="M10 22v-3"/><path d="M14 22v-3"/></svg>
+                    </div>
+                    <h3>Connect & Sync</h3>
+                    <p>User links bank accounts, uploads invoices, or connects accounting software. System fetches financial data in real-time.</p>
+                </div>
+                <div class="how-it-works-connector"></div>
+                <div class="how-it-works-card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                    </div>
+                    <h3>Centralize & Clean</h3>
+                    <p>Data is cleaned, categorized, and mapped to standard financial formats. Industry-specific financial metrics are auto-detected.</p>
+                </div>
+                <div class="how-it-works-connector"></div>
+                <div class="how-it-works-card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain"><path d="M12 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/><path d="M12 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 24a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg>
+                    </div>
+                    <h3>AI CFO in Action</h3>
+                    <p>Smart dashboards show real-time P&L, cash flow, balance sheet, burn rate, forecasts. AI gives alerts, insights, and personalized financial advice.</p>
+                </div>
+                <div class="how-it-works-connector"></div>
+                <div class="how-it-works-card">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                    </div>
+                    <h3>Decide & Grow</h3>
+                    <p>Founders and finance teams use the insights to make fast, confident decisions. Optionally integrate with banks or get credit advisory via partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer" id="contact">
         <!-- Social Media Section -->
@@ -1239,7 +1394,7 @@
             <div class="container">
                 <p class="social-cta">For your daily dose of financial intelligence, follow us on</p>
                 <div class="social-links-top">
-                    <a href="https://www.linkedin.com/company/asimply/" class="social-link-text">LinkedIn</a>
+                    <a href="#" class="social-link-text">LinkedIn</a>
                     <a href="#" class="social-link-text">Twitter</a>
                     <a href="#" class="social-link-text">YouTube</a>
                     <a href="#" class="social-link-text">Instagram</a>
@@ -1253,7 +1408,7 @@
                 <!-- Brand Section -->
                 <div class="footer-brand-section">
                     <div class="footer-logo-main">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo-icon-Gh3SBif0VQrgxFGRmVVjIJvKaiiiBY.png" alt="Asimply Logo">
+                        <img src="/images/asimply-logo.png" alt="Asimply Logo">
                         <span class="footer-brand-name">Asimply</span>
                     </div>
                     <p class="footer-tagline">Stay updated with the finance industry</p>
@@ -1327,7 +1482,7 @@
                     <a href="#">Privacy Policy</a>
                 </div>
                 <div class="footer-copyright">
-                    © asimply.in
+                    © Abel Tech Labs Pvt Ltd
                 </div>
             </div>
         </div>
