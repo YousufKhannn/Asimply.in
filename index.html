@@ -161,12 +161,12 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(135deg, #fff8f0 0%, #ffffff 100%);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(233, 155, 40, 0.1);
             z-index: 1000;
             transition: all 0.3s ease;
-            padding: 0;
+            padding: 1.5vh;
         }
         
         .navbar.scrolled {
@@ -211,14 +211,14 @@
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 3rem;
         }
         
         .nav-link {
             color: #301c27;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
             position: relative;
             padding: 0.5rem 0;
@@ -246,34 +246,38 @@
         
         .nav-cta-btn,
         .email-button {
-            /* Removed .newsletter-btn from this selector */
             background-color: #ffffff;
             border: 2px solid #e99b28;
             color: #e99b28;
-            border-radius: 50px;
+            border-radius: 999px;
+            /* More elegant pill shape */
             font-weight: 600;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            padding: 0.75rem 1.75rem;
             cursor: pointer;
-            transition: all 0.4s ease-in-out;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+            letter-spacing: 0.3px;
         }
         
         .nav-cta-btn:hover,
         .email-button:hover {
-            /* Removed .newsletter-btn from this selector */
             background-color: #e99b28;
             color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(233, 155, 40, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(233, 155, 40, 0.25);
         }
-        /* Specific Button Sizes */
+        /* Specific Sizes */
         
         .nav-cta-btn {
-            padding: 0.75rem 1.5rem;
-            font-size: 0.9rem;
+            padding: 0.7rem 1.6rem;
+            font-size: 14.5px;
         }
         
         .email-button {
-            padding: 12px 24px;
-            font-size: 14px;
+            padding: 13px 26px;
+            font-size: 15px;
         }
         /* Reverted Newsletter Button Style */
         
@@ -329,8 +333,8 @@
         /* Combined Hero Section */
         
         .hero-combined-section {
-            background: linear-gradient(135deg, #ffffff 0%, #fff8f0 100%);
-            padding: 90px 0 40px;
+            background: white;
+            padding: 120px 0 40px;
             position: relative;
             overflow: hidden;
             min-height: 100vh;
@@ -358,7 +362,6 @@
         
         .trust-line-top {
             text-align: center;
-            margin-bottom: 25px;
         }
         
         .trust-line {
@@ -386,24 +389,8 @@
         }
         
         .highlight-text {
-            color: #e99b28;
             position: relative;
             display: inline-block;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        
-        .highlight-text::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #e99b28, #f4a942);
-            border-radius: 2px;
-            animation: expandLine 1.5s ease 0.6s forwards;
-            transform: scaleX(0);
-            transform-origin: left;
         }
         
         .hero-subtitle-compact {
@@ -416,7 +403,7 @@
         /* Hero Slider */
         
         .hero-slider-wrapper {
-            max-width: 1050px;
+            max-width: 2000px;
             margin: 0 auto 25px;
             opacity: 0;
             animation: fadeInUp 1s ease 0.6s forwards;
@@ -424,7 +411,7 @@
         
         .slider-container {
             position: relative;
-            height: 280px;
+            height: 370px;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -1102,6 +1089,10 @@
                 font-size: 16px;
             }
         }
+        
+        span {
+            color: #E99B28;
+        }
     </style>
 </head>
 
@@ -1110,7 +1101,7 @@
     <div class="loader-wrapper" id="loader">
         <div class="loader-container">
             <div class="logo-loader">
-                <img src="/images/asimply-logo.png" alt="Asimply Logo" class="loader-logo">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo-icon-Gh3SBif0VQrgxFGRmVVjIJvKaiiiBY.png" alt="Asimply Logo" class="loader-logo">
             </div>
             <div class="loader-text">
                 <h2>Asimply</h2>
@@ -1126,19 +1117,19 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <img src="/images/asimply-logo.png" alt="Asimply Logo" class="nav-logo">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo-icon-Gh3SBif0VQrgxFGRmVVjIJvKaiiiBY.png" alt="Asimply Logo" class="nav-logo">
                 <span class="brand-name">Asimply</span>
             </div>
 
             <div class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
-                <a href="#services" class="nav-link">Services &#x25BE;</a>
-                <a href="#solutions" class="nav-link">Solutions &#x25BE;</a>
-                <a href="#resources" class="nav-link">Resources &#x25BE;</a>
-                <a href="#company" class="nav-link">Company &#x25BE;</a>
-                <a href="#" class="nav-link" style="color: #e99b28; font-weight: 600;">&#9889; Book a Demo</a>
-                <button class="nav-cta-btn">Login</button>
+                <a href="#services" class="nav-link">Services </a>
+                <a href="#solutions" class="nav-link">Solutions </a>
+                <a href="#resources" class="nav-link">Resources </a>
+                <a href="#company" class="nav-link">Company </a>
+                <a href="https://www.linkedin.com/company/asimply/?viewAsMember=true" class="nav-link" style="color: #e99b28; font-weight: 600;">&#9889; LinkedIn</a>
+
             </div>
 
             <div class="nav-toggle" id="navToggle">
@@ -1153,15 +1144,16 @@
     <section class="hero-combined-section" id="home">
         <div class="container">
             <!-- Trust Line at Top -->
-            <div class="trust-line-top">
-                <p class="trust-line">Join the next wave of 10,000+ businesses transforming finance with Asimply.</p>
-            </div>
 
             <!-- Compact Headline -->
             <div class="hero-headline">
                 <h1 class="hero-title-compact">
-                    India's Smartest CFO, <span class="highlight-text">Redefined</span>.
+                    India's Smartest CFO, Redefined.
                 </h1>
+                <div class="trust-line-top">
+                    <p class="trust-line">Join the next wave of <span> 10,000+ businesses transforming finance with Asimply.</span></p>
+                </div>
+
                 <p class="hero-subtitle-compact">AI-driven financial intelligence, decision support, and automation.</p>
             </div>
 
@@ -1170,13 +1162,13 @@
                 <div class="slider-container">
                     <div class="slider-track" id="sliderTrack">
                         <div class="slider-slide active">
-                            <img src="./banner-1.png" alt="AI-Powered Financial Dashboard" class="slide-image">
+                            <img src="./posters/banner-1.png" alt="AI-Powered Financial Dashboard" class="slide-image">
                         </div>
                         <div class="slider-slide">
-                            <img src="./banner-2.png" alt="Real-Time Financial Analytics" class="slide-image">
+                            <img src="./posters/banner-3.png" alt="Real-Time Financial Analytics" class="slide-image">
                         </div>
                         <div class="slider-slide">
-                            <img src="./banner-3.png" alt="Automated Financial Planning" class="slide-image">
+                            <img src="./posters/banner-2.png" alt="Automated Financial Planning" class="slide-image">
                         </div>
                     </div>
                     <div class="slider-dots">
@@ -1209,7 +1201,7 @@
             <div class="about-content">
                 <h2 class="section-title">What is Asimply?</h2>
                 <p class="about-description">
-                    Asimply is a futuristic CFO platform powered by AI — delivering insights, forecasting, automation, and strategic support for founders, finance teams, and decision-makers. It blends dashboards, metrics, cash flow, P&L, and strategic planning in one interface.
+                    Asimply is a futuristic CFO platform powered by AI delivering insights, forecasting, automation, and strategic support for founders, finance teams, and decision-makers. It blends dashboards, metrics, cash flow, P&L, and strategic planning in one interface.
                 </p>
                 <div class="features-grid">
                     <div class="feature-item">
@@ -1253,7 +1245,7 @@
                 <!-- Brand Section -->
                 <div class="footer-brand-section">
                     <div class="footer-logo-main">
-                        <img src="/images/asimply-logo.png" alt="Asimply Logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo-icon-Gh3SBif0VQrgxFGRmVVjIJvKaiiiBY.png" alt="Asimply Logo">
                         <span class="footer-brand-name">Asimply</span>
                     </div>
                     <p class="footer-tagline">Stay updated with the finance industry</p>
