@@ -311,53 +311,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </footer>
 
     <script src="./scripts.js"></script>
-    <script>
-        const sheetScriptURL = 'https://script.google.com/macros/s/AKfycbxxctl_7bqxKRDvyMkmFCwPVsJNoLCiK44ZwUuaqmMqoY3mAVDf_DgheZZi6sOT81pQ/exec'; // Paste the copied URL here
 
-        // For Hero Email Form
-        document.getElementById('emailForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('emailInput').value;
-
-            fetch(sheetScriptURL, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        email
-                    }),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                })
-                .then(res => res.json())
-                .then(() => {
-                    document.getElementById('successMessage').style.display = 'block';
-                    document.getElementById('emailInput').value = '';
-                })
-                .catch(err => alert('Error saving email'));
-        });
-
-        // For Footer Email Form
-        document.getElementById('footerNewsletterForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('.newsletter-input').value;
-
-            fetch(sheetScriptURL, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        email
-                    }),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                })
-                .then(res => res.json())
-                .then(() => {
-                    alert("You're subscribed! 🎉");
-                    this.querySelector('.newsletter-input').value = '';
-                })
-                .catch(err => alert('Error saving email'));
-        });
-    </script>
 
 </body>
 
