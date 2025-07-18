@@ -153,66 +153,27 @@ body {
 /* Back to Top Button Styling */
 
 #backToTop {
+    display: none;
+    /* Hidden by default */
     position: fixed;
     bottom: 40px;
-    right: 40px;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    /* glassmorphism */
-    border: 2px solid transparent;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    color: #e99b28;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    right: 30px;
+    z-index: 99;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    background-color: #E99B28;
+    color: white;
     cursor: pointer;
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-#backToTop .arrow-icon {
-    width: 24px;
-    height: 24px;
-}
-
-#backToTop.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-/* Futuristic border fill effect */
-
-#backToTop::before {
-    content: '';
-    position: absolute;
-    inset: 0;
+    padding: 14px 18px;
     border-radius: 50%;
-    border: 2px solid #e99b28;
-    transform: scale(0);
-    opacity: 0;
-    transition: transform 0.6s ease, opacity 0.6s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
 }
 
-#backToTop.show::before {
-    transform: scale(1);
-    opacity: 1;
-}
-
-
-/* Dark theme compatibility */
-
-@media (prefers-color-scheme: dark) {
-    #backToTop {
-        background: rgba(255, 255, 255, 0.05);
-        color: #e99b28;
-        box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
-    }
+#backToTop:hover {
+    background-color: #cf870f;
+    transform: scale(1.1);
 }
 
 

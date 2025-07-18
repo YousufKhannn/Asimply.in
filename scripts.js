@@ -150,16 +150,17 @@
   })
 
 
-  const backToTop = document.getElementById('backToTop');
-
-  window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-          backToTop.classList.add('show');
+  // Show/hide button on scroll
+  window.onscroll = function() {
+      const backToTop = document.getElementById("backToTop");
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+          backToTop.style.display = "block";
       } else {
-          backToTop.classList.remove('show');
+          backToTop.style.display = "none";
       }
-  });
+  };
 
-  backToTop.addEventListener('click', () => {
+  // Scroll to top when clicked
+  document.getElementById("backToTop").addEventListener("click", function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
   });
