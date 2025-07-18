@@ -149,31 +149,38 @@ body {
     }
 }
 
-
-/* Back to Top Button Styling */
-
 #backToTop {
-    display: none;
-    /* Hidden by default */
     position: fixed;
     bottom: 40px;
     right: 30px;
-    z-index: 99;
-    font-size: 24px;
-    border: none;
-    outline: none;
-    background-color: #E99B28;
-    color: white;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
     cursor: pointer;
-    padding: 14px 18px;
-    border-radius: 50%;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease-in-out;
+    display: none;
 }
 
-#backToTop:hover {
-    background-color: #cf870f;
-    transform: scale(1.1);
+.progress-ring {
+    width: 60px;
+    height: 60px;
+    transform: rotate(-90deg);
+}
+
+.progress-ring path {
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+.progress-ring .bg {
+    stroke: #e0e0e0;
+}
+
+.progress-ring .progress {
+    stroke: #E99B28;
+    stroke-dasharray: 100, 100;
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 0.2s ease-out;
 }
 
 
