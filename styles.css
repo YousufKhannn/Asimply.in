@@ -732,8 +732,9 @@ body {
 
 .social-cta::after {
     content: "↗";
-    font-size: 21px;
+    font-size: 25px;
     color: #e99b28;
+    font-weight: bolder;
 }
 
 .social-links-top {
