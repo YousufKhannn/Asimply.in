@@ -150,17 +150,29 @@
   })
 
 
-  // Show/hide button on scroll
-  window.onscroll = function() {
-      const backToTop = document.getElementById("backToTop");
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-          backToTop.style.display = "block";
-      } else {
-          backToTop.style.display = "none";
-      }
-  };
 
-  // Scroll to top when clicked
-  document.getElementById("backToTop").addEventListener("click", function() {
+  // Get elements
+  const btn = document.getElementById("backToTop");
+  const progressPath = document.getElementById("progressPath");
+
+  // Scroll listener
+  window.addEventListener("scroll", () => {
+      const scroll = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scroll / height) * 100;
+
+      // Show button after some scroll
+      if (scroll > 300) {
+          btn.style.display = "block";
+      } else {
+          btn.style.display = "none";
+      }
+
+      // Animate ring border
+      progressPath.style.strokeDashoffset = 100 - scrollPercent;
+  });
+
+  // Smooth scroll to top
+  btn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
   });
