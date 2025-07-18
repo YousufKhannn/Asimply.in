@@ -419,8 +419,8 @@ body {
 }
 
 .hero-title-compact {
-    font-size: clamp(1.2rem, 3.8vw, 2.2rem);
-    font-weight: 700;
+    font-size: clamp(1.1rem, 3.7vw, 2.1rem);
+    font-weight: 600;
     line-height: 1.2;
     margin-bottom: 15px;
     color: #000000;
@@ -428,13 +428,8 @@ body {
     animation: fadeInUp 1s ease 0.2s forwards;
 }
 
-.highlight-text {
-    position: relative;
-    display: inline-block;
-}
-
 .hero-subtitle-compact {
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(1.1rem, 2vw, 1.2rem);
     color: #301c27;
     font-weight: 400;
     opacity: 0;
@@ -725,7 +720,7 @@ body {
 }
 
 .social-cta {
-    font-size: 18px;
+    font-size: 28px;
     color: #e99b28;
     font-weight: 600;
     margin-bottom: 20px;
@@ -737,7 +732,7 @@ body {
 
 .social-cta::after {
     content: "↗";
-    font-size: 17px;
+    font-size: 21px;
     color: #e99b28;
 }
 
@@ -751,7 +746,7 @@ body {
 .social-link-text {
     color: #301c27;
     text-decoration: none;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 800;
     transition: all 0.3s ease;
     position: relative;
