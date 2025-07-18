@@ -148,3 +148,19 @@
 
       console.log("Asimply landing page loaded successfully! 🚀")
   })
+
+
+  // Show/hide button on scroll
+  window.onscroll = function() {
+      const backToTop = document.getElementById("backToTop");
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+          backToTop.style.display = "block";
+      } else {
+          backToTop.style.display = "none";
+      }
+  };
+
+  // Scroll to top when clicked
+  document.getElementById("backToTop").addEventListener("click", function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  });

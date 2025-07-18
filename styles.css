@@ -150,6 +150,33 @@ body {
 }
 
 
+/* Back to Top Button Styling */
+
+#backToTop {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    z-index: 99;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    background-color: #E99B28;
+    color: white;
+    cursor: pointer;
+    padding: 14px 18px;
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+#backToTop:hover {
+    background-color: #cf870f;
+    transform: scale(1.1);
+}
+
+
 /* Navigation Bar */
 
 .navbar {
