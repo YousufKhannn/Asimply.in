@@ -44,6 +44,33 @@
     </script>
 </head>
 
+
+<script>
+    document.getElementById("emailForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const email = document.getElementById("emailInput").value;
+
+        fetch("https://script.google.com/macros/s/AKfycbxIyreReRJ1c2q91ewNmgra9VWFhfBNQS--LdWN68ehMMlI183ApzWfWoZ7R6hLD1mx/exec", {
+                method: "POST",
+                body: new URLSearchParams({
+                    "email": email
+                })
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data.includes("Success")) {
+                    document.getElementById("successMessage").style.display = "block";
+                    document.getElementById("emailForm").reset();
+                } else {
+                    alert("Something went wrong!");
+                }
+            })
+            .catch(error => {
+                alert("Error: " + error);
+            });
+    });
+</script>
+
 <body>
 
 
