@@ -49,25 +49,23 @@
     document.getElementById("emailForm").addEventListener("submit", function(e) {
         e.preventDefault();
         const email = document.getElementById("emailInput").value;
+        const scriptURL = "https://script.google.com/macros/s/AKfycbyabXxVz7RmnhpLKKgQOZJxkg9A-OZ-SRAmiAnaqLazFB_orzX2QkoHBrGf1Tq-MyoY/exec";
 
-        fetch("https://script.google.com/macros/s/AKfycbxEmGEJqZfoVbRdahRBPiMtCK26bjPscogltQmQtQE/dev", {
-                method: "POST",
+        fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
                 body: new URLSearchParams({
                     "email": email
                 })
             })
-            .then(response => response.text())
-            .then(data => {
-                if (data.includes("Success")) {
-                    document.getElementById("successMessage").style.display = "block";
-                    document.getElementById("emailForm").reset();
-                } else {
-                    alert("Something went wrong!");
-                }
+            .then(() => {
+                document.getElementById("successMessage").style.display = "block";
+                document.getElementById("emailInput").value = "";
             })
-            .catch(error => {
-                alert("Error: " + error);
-            });
+            .catch(err => console.error('Error!', err.message));
     });
 </script>
 
@@ -183,7 +181,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <input type="email" class="email-input" placeholder="Enter your email address" required id="emailInput">
                     <button type="submit" class="email-button">Get Early Access</button>
                 </form>
-                <div class="success-message" id="successMessage">
+                <div class="success-message" id="successMessage" style="display:none;">
                     <p>✨ You're on the list! Welcome to the future of finance.</p>
                 </div>
             </div>
@@ -354,9 +352,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </footer>
 
-    <script src="./scripts.js"></script>
+    <script src="./scripts.js">
+        < /sc>
 
 
-</body>
+        <
+        /body>
 
-</html>
+        <
+        /html>
