@@ -5,7 +5,7 @@
           setTimeout(() => {
               loader.style.display = 'none'; // Directly hide the loader
               loader.remove(); // Remove loader from DOM
-          }, 3000); // Exactly 3 seconds as requested
+          }, 2000); // Exactly 2 seconds as requested
       }
   });
 
