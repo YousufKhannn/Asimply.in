@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
     if (loader) {
         setTimeout(() => {
             loader.style.display = 'none';
-            loader.remove();
+            // loader.remove(); // Removed to prevent errors
         }, 3000);
     }
 });

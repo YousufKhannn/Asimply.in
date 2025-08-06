@@ -44,34 +44,7 @@
     </script>
 </head>
 
-
-<script>
-    document.getElementById("emailForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        const email = document.getElementById("emailInput").value;
-        const scriptURL = "https://script.google.com/macros/s/AKfycbyabXxVz7RmnhpLKKgQOZJxkg9A-OZ-SRAmiAnaqLazFB_orzX2QkoHBrGf1Tq-MyoY/exec";
-
-        fetch(scriptURL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams({
-                    "email": email
-                })
-            })
-            .then(() => {
-                document.getElementById("successMessage").style.display = "block";
-                document.getElementById("emailInput").value = "";
-            })
-            .catch(err => console.error('Error!', err.message));
-    });
-</script>
-
 <body>
-
-
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PN8VDZ76"
@@ -141,7 +114,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Compact Headline -->
             <div class="hero-headline">
                 <h1 class="hero-title-compact">
-                    India’s First Smartest CFO, Your Finance Team Might Get Jealous.
+                    India's First Smartest CFO, Your Finance Team Might Get Jealous.
                 </h1>
                 <div class="trust-line-top">
                     <p class="trust-line">Join the next wave of <b id="trust">10,000+ businesses transforming finance with Asimply.</b></p>
@@ -194,7 +167,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="about-content">
                 <h2 class="section-title">What is Asimply?</h2>
                 <p class="about-description">
-                    Asimply is India’s first AI CFO built to replace outdated finance teams. It forecasts, analyzes, and automates—faster than any hire. Your financial data now thinks for itself.
+                    Asimply is India's first AI CFO built to replace outdated finance teams. It forecasts, analyzes, and automates—faster than any hire. Your financial data now thinks for itself.
                 </p>
                 <div class="features-grid">
                     <div class="feature-item">
@@ -352,4 +325,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </footer>
 
-    <script src="./scripts.js">
+    <!-- Email Form Handler Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const emailForm = document.getElementById("emailForm");
+            if (emailForm) {
+                emailForm.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById("emailInput").value;
+                    const scriptURL = "https://script.google.com/macros/s/AKfycbyabXxVz7RmnhpLKKgQOZJxkg9A-OZ-SRAmiAnaqLazFB_orzX2QkoHBrGf1Tq-MyoY/exec";
+
+                    fetch(scriptURL, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: new URLSearchParams({
+                                "email": email
+                            })
+                        })
+                        .then(() => {
+                            document.getElementById("successMessage").style.display = "block";
+                            document.getElementById("emailInput").value = "";
+                        })
+                        .catch(err => console.error('Error!', err.message));
+                });
+            }
+        });
+    </script>
+
+    <!-- Load external scripts -->
+    <script src="./scripts.js"></script>
+</body>
+
+</html>
