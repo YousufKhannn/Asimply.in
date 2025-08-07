@@ -400,7 +400,7 @@ body {
 
 .trust-line-top {
     text-align: center;
-    color: #ff000d;
+    color: #301c27b6;
 }
 
 .trust-line {
@@ -417,6 +417,7 @@ body {
 .hero-headline {
     text-align: center;
     margin-bottom: 25px;
+    letter-spacing: 5px;
 }
 
 .hero-title-compact {
