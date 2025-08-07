@@ -417,11 +417,11 @@ body {
 .hero-headline {
     text-align: center;
     margin-bottom: 25px;
-    letter-spacing: 5px;
 }
 
 .hero-title-compact {
-    font-size: clamp(1.1rem, 3.7vw, 2.1rem);
+    font-size: clamp(1rem, 3.6vw, 2rem);
+    letter-spacing: 3px;
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 15px;
