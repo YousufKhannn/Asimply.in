@@ -420,8 +420,7 @@ body {
 }
 
 .hero-title-compact {
-    font-size: clamp(1rem, 3.6vw, 2rem);
-    letter-spacing: 3px;
+    font-size: clamp(1.1rem, 3.5vw, 2.1rem);
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 15px;
