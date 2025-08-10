@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Asimply | Login & Signup</title>
+    <style>
+        /* Reset & basics */
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #faf7f3;
+            color: #3a3a3a;
+        }
+        /* Container */
+        
+        .container {
+            max-width: 400px;
+            margin: 5vh auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem 2rem 3rem;
+        }
+        /* Title */
+        
+        .title {
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #D4BBA4;
+            /* Primary brand color */
+            user-select: none;
+        }
+        /* Toggle Buttons */
+        
+        .toggle-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+        
+        .toggle-btn {
+            flex: 1;
+            padding: 0.75rem 0;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .toggle-btn.active {
+            background-color: #E99B28;
+            /* Accent color */
+            color: white;
+            border-color: #E99B28;
+        }
+        
+        .toggle-btn:not(.active):hover {
+            background-color: #f0e4d8;
+            color: #D4BBA4;
+        }
+        /* Forms */
+        
+        form {
+            display: none;
+            flex-direction: column;
+        }
+        
+        form.active {
+            display: flex;
+        }
+        
+        label {
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 0.65rem 1rem;
+            margin-bottom: 1.25rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #E99B28;
+            outline: none;
+        }
+        /* Submit Button */
+        
+        button[type="submit"] {
+            padding: 0.85rem;
+            background-color: #E99B28;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #d4881f;
+        }
+        /* Message */
+        
+        .message {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #E99B28;
+        }
+        /* Responsive */
+        
+        @media (max-width: 440px) {
+            .container {
+                margin: 3vh 1rem;
+                padding: 2rem 1.5rem 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" role="main" aria-label="Login and Signup form">
+        <h1 class="title">Asimply</h1>
+
+        <div class="toggle-buttons" role="tablist">
+            <button id="loginToggle" class="toggle-btn active" role="tab" aria-selected="true" aria-controls="loginForm" tabindex="0">Login</button>
+            <button id="signupToggle" class="toggle-btn" role="tab" aria-selected="false" aria-controls="signupForm" tabindex="-1">Sign Up</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="active" aria-hidden="false" novalidate>
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="loginEmail" placeholder="your@email.com" required autocomplete="username" />
+
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter password" required autocomplete="current-password" minlength="6" />
+
+            <button type="submit">Login</button>
+            <p class="message" id="loginMsg" aria-live="polite"></p>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signupForm" aria-hidden="true" novalidate>
+            <label for="signupName">Full Name</label>
+            <input type="text" id="signupName" name="signupName" placeholder="Your full name" required autocomplete="name" minlength="3" />
+
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" name="signupEmail" placeholder="your@email.com" required autocomplete="email" />
+
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" name="signupPassword" placeholder="Create password" required minlength="6" autocomplete="new-password" />
+
+            <label for="signupConfirmPassword">Confirm Password</label>
+            <input type="password" id="signupConfirmPassword" name="signupConfirmPassword" placeholder="Confirm password" required minlength="6" autocomplete="new-password" />
+
+            <button type="submit">Sign Up</button>
+            <p class="message" id="signupMsg" aria-live="polite"></p>
+        </form>
+    </div>
+
+    <script>
+        // Elements
+        const loginToggle = document.getElementById('loginToggle');
+        const signupToggle = document.getElementById('signupToggle');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const loginMsg = document.getElementById('loginMsg');
+        const signupMsg = document.getElementById('signupMsg');
+
+        // Toggle function
+        function showLogin() {
+            loginToggle.classList.add('active');
+            signupToggle.classList.remove('active');
+            loginToggle.setAttribute('aria-selected', 'true');
+            signupToggle.setAttribute('aria-selected', 'false');
+            loginToggle.tabIndex = 0;
+            signupToggle.tabIndex = -1;
+            loginForm.classList.add('active');
+            loginForm.setAttribute('aria-hidden', 'false');
+            signupForm.classList.remove('active');
+            signupForm.setAttribute('aria-hidden', 'true');
+            clearMessages();
+        }
+
+        function showSignup() {
+            signupToggle.classList.add('active');
+            loginToggle.classList.remove('active');
+            signupToggle.setAttribute('aria-selected', 'true');
+            loginToggle.setAttribute('aria-selected', 'false');
+            signupToggle.tabIndex = 0;
+            loginToggle.tabIndex = -1;
+            signupForm.classList.add('active');
+            signupForm.setAttribute('aria-hidden', 'false');
+            loginForm.classList.remove('active');
+            loginForm.setAttribute('aria-hidden', 'true');
+            clearMessages();
+        }
+
+        loginToggle.addEventListener('click', showLogin);
+        signupToggle.addEventListener('click', showSignup);
+
+        // Clear message texts
+        function clearMessages() {
+            loginMsg.textContent = '';
+            signupMsg.textContent = '';
+        }
+
+        // Basic validation & form handling
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearMessages();
+
+            const email = loginForm.loginEmail.value.trim();
+            const password = loginForm.loginPassword.value.trim();
+
+            if (!validateEmail(email)) {
+                loginMsg.textContent = 'Please enter a valid email.';
+                return;
+            }
+            if (password.length < 6) {
+                loginMsg.textContent = 'Password must be at least 6 characters.';
+                return;
+            }
+
+            // Simulate login success (replace with real backend call)
+            loginMsg.style.color = '#3a3a3a';
+            loginMsg.textContent = `Welcome back, ${email}! (This is a demo message.)`;
+        });
+
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearMessages();
+
+            const name = signupForm.signupName.value.trim();
+            const email = signupForm.signupEmail.value.trim();
+            const password = signupForm.signupPassword.value.trim();
+            const confirmPassword = signupForm.signupConfirmPassword.value.trim();
+
+            if (name.length < 3) {
+                signupMsg.textContent = 'Please enter your full name (min 3 chars).';
+                return;
+            }
+            if (!validateEmail(email)) {
+                signupMsg.textContent = 'Please enter a valid email.';
+                return;
+            }
+            if (password.length < 6) {
+                signupMsg.textContent = 'Password must be at least 6 characters.';
+                return;
+            }
+            if (password !== confirmPassword) {
+                signupMsg.textContent = 'Passwords do not match.';
+                return;
+            }
+
+            // Simulate signup success (replace with real backend call)
+            signupMsg.style.color = '#3a3a3a';
+            signupMsg.textContent = `Thanks for signing up, ${name}! (This is a demo message.)`;
+        });
+
+        // Email regex validation
+        function validateEmail(email) {
+            // Basic email regex
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email.toLowerCase());
+        }
+
+        // On page load, default to login
+        showLogin();
+    </script>
+
+</body>
+
+</html>
