@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: "dist/spa",
+    emptyOutDir: true,
   },
   plugins: [react(), expressPlugin()],
   resolve: {
@@ -23,6 +24,11 @@ export default defineConfig(({ mode }) => ({
       "@shared": path.resolve(__dirname, "./shared"),
     },
   },
+  // Important for SPA routing in production
+  preview: {
+    port: 8080,
+    strictPort: true,
+  }
 }));
 
 function expressPlugin(): Plugin {
@@ -31,7 +37,6 @@ function expressPlugin(): Plugin {
     apply: "serve", // Only apply during development (serve mode)
     configureServer(server) {
       const app = createServer();
-
       // Add Express app as middleware to Vite dev server
       server.middlewares.use(app);
     },
